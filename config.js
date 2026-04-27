@@ -1,4 +1,4 @@
-// Kepler.studio config — Supabase credentials.
+// Kleper.studio config — Supabase credentials.
 //
 // SAFETY: the publishable key is intended to be public. Row-level-security in
 // supabase-schema.sql is what protects your data. Never put a *secret* key

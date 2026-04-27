@@ -1,5 +1,5 @@
 -- ============================================================
--- Kepler.studio · Supabase schema
+-- Kleper.studio · Supabase schema
 -- Run this in: Supabase Dashboard → SQL Editor → New query
 -- ============================================================
 
@@ -12,7 +12,7 @@ create table if not exists public.leads (
   budget        text,
   need          text          not null,
   products      text[]        default '{}',
-  source        text          default 'kepler.studio',
+  source        text          default 'kleper.studio',
   user_agent    text,
   referrer      text,
   submitted_at  timestamptz   default now(),

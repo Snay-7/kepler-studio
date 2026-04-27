@@ -1,6 +1,6 @@
-# Kepler.studio
+# Kleper.studio
 
-Lead-capture website for Kepler — websites, CRM, automations and AI agents for ambitious operators.
+Lead-capture website for Kleper — websites, CRM, automations and AI agents for ambitious operators.
 
 **Stack:** static HTML, hosted on **Vercel**, source on **GitHub**, contact form writes to **Supabase**.
 
@@ -38,12 +38,12 @@ No build step, no node_modules. Open `index.html` in a browser to preview.
 ### 2 · GitHub — push the code (3 min)
 
 ```bash
-cd kepler.studio
+cd kleper.studio
 git init
 git add .
-git commit -m "Initial commit: Kepler.studio v1"
+git commit -m "Initial commit: Kleper.studio v1"
 git branch -M main
-git remote add origin git@github.com:YOUR-USERNAME/kepler-studio.git
+git remote add origin git@github.com:YOUR-USERNAME/kleper-studio.git
 git push -u origin main
 ```
 
@@ -52,7 +52,7 @@ git push -u origin main
 1. [vercel.com/new](https://vercel.com/new) → import the GitHub repo.
 2. Framework preset: **Other**. Build command: leave empty. Output dir: `./`.
 3. Click **Deploy**. You get a `*.vercel.app` URL in ~30 seconds.
-4. **Add custom domain:** Project → Settings → Domains → add `kepler.studio` and `www.kepler.studio`.
+4. **Add custom domain:** Project → Settings → Domains → add `kleper.studio` and `www.kleper.studio`.
 5. Vercel will tell you which DNS records to add at your registrar (where you bought the domain).
 
 That's it. Push to `main` from now on and Vercel auto-deploys.
@@ -66,7 +66,7 @@ That's it. Push to `main` from now on and Vercel auto-deploys.
 
 If the form fails: open the browser console. The most common error is `401 Unauthorized` (wrong anon key) or `42501 row-level security` (you skipped step 1, run the schema).
 
-## Email setup (`hello@kepler.studio`)
+## Email setup (`hello@kleper.studio`)
 
 You already have your DNS set up, so add MX records pointing to whichever email host you prefer. Quick comparison:
 
@@ -106,7 +106,7 @@ CSS lives in the `<style>` block at the top of the file. JS lives at the bottom 
 - [ ] **Run `supabase-schema.sql`** in your Supabase SQL editor
 - [ ] **Push to GitHub** and connect to Vercel
 - [ ] **Add the custom domain** in Vercel and update DNS
-- [ ] **Set up `hello@kepler.studio`** with Cloudflare Email Routing or Workspace
+- [ ] **Set up `hello@kleper.studio`** with Cloudflare Email Routing or Workspace
 - [ ] **Submit the form yourself** to confirm it lands in Supabase
 - [ ] **Add a real `og-image.png`** (1200×630, branded) so link previews look proper
 - [ ] **Add Plausible / GA snippet** to the `<head>` for analytics
@@ -114,4 +114,4 @@ CSS lives in the `<style>` block at the top of the file. JS lives at the bottom 
 
 ## License
 
-Private — © 2026 Kepler Studio. All rights reserved.
+Private — © 2026 Kleper Studio. All rights reserved.

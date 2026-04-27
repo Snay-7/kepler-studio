@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://kepler.studio/sitemap.xml
+Sitemap: https://kleper.studio/sitemap.xml

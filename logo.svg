@@ -6,6 +6,6 @@
     <circle cx="32" cy="32" r="3" fill="#fff"/>
   </g>
   <!-- Wordmark -->
-  <text x="80" y="58" fill="#fff" font-size="48" font-weight="800" letter-spacing="-1.5">KEPLER</text>
-  <text x="262" y="58" fill="#00FF88" font-size="48" font-weight="800" letter-spacing="-1.5">.studio</text>
+  <text x="80" y="58" fill="#fff" font-size="48" font-weight="800" letter-spacing="-1.5">KLEPER</text>
+  <text x="270" y="58" fill="#00FF88" font-size="48" font-weight="800" letter-spacing="-1.5">.studio</text>
 </svg>
