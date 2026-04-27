@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+<title>Kepler — Websites that capture real leads</title>
+<meta name="description" content="Kepler builds websites that capture real leads — and the CRM, automations and AI agents that turn them into customers. From £2.4k.">
+<meta name="theme-color" content="#0A0A0B">
+<meta name="author" content="Kepler Studio">
+<link rel="canonical" href="https://kepler.studio/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kepler.studio/">
+<meta property="og:title" content="Kepler — Websites that capture real leads">
+<meta property="og:description" content="Lead-capture engineering for ambitious operators. Websites, CRM, automations and AI agents — built and run as one platform.">
+<meta property="og:image" content="https://kepler.studio/og-image.png">
+<meta property="og:site_name" content="Kepler Studio">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://kepler.studio/">
+<meta name="twitter:title" content="Kepler — Websites that capture real leads">
+<meta name="twitter:description" content="Lead-capture engineering for ambitious operators. Websites, CRM, automations and AI agents — built and run as one platform.">
+<meta name="twitter:image" content="https://kepler.studio/og-image.png">
+
+<!-- Favicon (inline SVG so it works on every host) -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230A0A0B'/%3E%3Cellipse cx='16' cy='16' rx='12' ry='5' fill='none' stroke='white' stroke-width='1.4' transform='rotate(-20 16 16)'/%3E%3Ccircle cx='25' cy='10' r='4.5' fill='%2300FF88'/%3E%3Ccircle cx='16' cy='16' r='1.5' fill='white'/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='32' fill='%230A0A0B'/%3E%3Cellipse cx='90' cy='90' rx='66' ry='28' fill='none' stroke='white' stroke-width='6' transform='rotate(-20 90 90)'/%3E%3Ccircle cx='140' cy='56' r='24' fill='%2300FF88'/%3E%3Ccircle cx='90' cy='90' r='8' fill='white'/%3E%3C/svg%3E">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0A0A0B;
+    --ink-2: #111114;
+    --ink-3: #1B1B20;
+    --line: #25252C;
+    --line-soft: #E6E6EA;
+    --paper: #FAFAFA;
+    --bone: #FFFFFF;
+    --green: #00FF88;
+    --green-deep: #00D672;
+    --green-glow: rgba(0,255,136,.35);
+    --slate: #6B6B76;
+    --slate-light: #9A9AA5;
+    --char: #16181F;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    color: var(--bone);
+    background: var(--ink);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  a { color: inherit; text-decoration: none; }
+  img, svg { display: block; max-width: 100%; }
+  .serif { font-family: "Instrument Serif", Georgia, serif; font-weight: 400; }
+  .italic { font-style: italic; }
+
+  .wrap { max-width: 1240px; margin: 0 auto; padding: 0 32px; }
+  section { padding: 110px 0; position: relative; }
+
+  /* Buttons */
+  .btn { display: inline-flex; align-items: center; gap: 10px; padding: 16px 26px; border-radius: 999px; font-weight: 700; font-size: 15px; transition: transform .18s, background .18s, color .18s; }
+  .btn-green { background: var(--green); color: var(--ink); box-shadow: 0 0 0 0 var(--green-glow); }
+  .btn-green:hover { background: var(--green-deep); transform: translateY(-1px); box-shadow: 0 16px 32px var(--green-glow); }
+  .btn-white { background: var(--bone); color: var(--ink); }
+  .btn-white:hover { transform: translateY(-1px); }
+  .btn-ghost { background: transparent; color: var(--bone); border: 1.5px solid rgba(255,255,255,.2); }
+  .btn-ghost:hover { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.4); }
+  .btn .arrow { transition: transform .18s; }
+  .btn:hover .arrow { transform: translateX(3px); }
+
+  /* NAV */
+  nav.top {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(10,10,11,.7);
+    backdrop-filter: saturate(180%) blur(14px);
+    -webkit-backdrop-filter: saturate(180%) blur(14px);
+    border-bottom: 1px solid transparent;
+    transition: border-color .2s;
+  }
+  nav.top.scrolled { border-bottom-color: var(--line); }
+  nav.top .row { display: flex; align-items: center; justify-content: space-between; padding: 20px 0; }
+  nav.top .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 22px; letter-spacing: -.5px; }
+  nav.top .brand .mark { width: 32px; height: 32px; position: relative; flex: 0 0 auto; }
+  nav.top .brand .mark .ring { width: 100%; height: 100%; border: 1.5px solid rgba(255,255,255,.6); border-radius: 50%; transform: rotate(-20deg); }
+  nav.top .brand .mark .planet { position: absolute; right: -2px; top: 2px; width: 10px; height: 10px; background: var(--green); border-radius: 50%; box-shadow: 0 0 12px var(--green-glow); }
+  nav.top .brand .dot-suffix { color: var(--green); }
+  nav.top .links { display: flex; gap: 36px; align-items: center; font-size: 14px; font-weight: 500; }
+  nav.top .links a { opacity: .7; transition: opacity .15s; }
+  nav.top .links a:hover { opacity: 1; }
+  nav.top .nav-actions { display: flex; gap: 10px; align-items: center; }
+  nav.top .nav-actions .btn { padding: 11px 20px; font-size: 14px; }
+
+  /* HERO */
+  .hero { padding: 80px 0 130px; position: relative; overflow: hidden; }
+  .hero::before { /* stars/dots */
+    content:""; position: absolute; inset: 0;
+    background:
+      radial-gradient(circle at 80% 20%, rgba(0,255,136,.08) 0%, transparent 40%),
+      radial-gradient(circle at 12% 80%, rgba(0,255,136,.06) 0%, transparent 35%);
+    z-index: -1;
+  }
+  .hero .stars { position: absolute; inset: 0; opacity: .5; z-index: -1; }
+  .hero .eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 8px 16px; border-radius: 999px;
+    background: rgba(0,255,136,.08); border: 1px solid rgba(0,255,136,.25);
+    font-size: 13px; font-weight: 600; color: var(--green);
+    letter-spacing: .3px;
+  }
+  .hero .eyebrow .pulse { width: 8px; height: 8px; background: var(--green); border-radius: 50%; box-shadow: 0 0 0 4px rgba(0,255,136,.18); }
+  .hero h1 {
+    font-size: clamp(52px, 8.5vw, 108px); line-height: .94; letter-spacing: -3px;
+    font-weight: 800; margin-top: 30px; max-width: 1200px;
+  }
+  .hero h1 .accent {
+    background: var(--green); color: var(--ink);
+    padding: 0 16px; border-radius: 18px;
+    display: inline-block; transform: rotate(-1.5deg);
+    box-shadow: 0 30px 60px rgba(0,255,136,.18);
+  }
+  .hero h1 em { font-style: normal; color: var(--slate-light); font-weight: 800; }
+  .hero .lede {
+    font-size: 22px; color: var(--slate-light); margin-top: 36px; max-width: 720px;
+    line-height: 1.5;
+  }
+  .hero .lede b { color: var(--bone); font-weight: 600; }
+  .hero .ctas { display: flex; gap: 14px; margin-top: 50px; flex-wrap: wrap; }
+  .hero .stats {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+    margin-top: 96px; padding-top: 48px; border-top: 1px solid var(--line);
+  }
+  .hero .stat .v {
+    font-size: 44px; font-weight: 800; letter-spacing: -2px; line-height: 1;
+    color: var(--bone);
+  }
+  .hero .stat .l { font-size: 13px; color: var(--slate); margin-top: 10px; letter-spacing: .3px; }
+
+  /* PROBLEM SECTION */
+  .problem { padding: 90px 0; }
+  .problem .grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 80px; align-items: center; }
+  .problem .left .eb { font-size: 13px; color: var(--green); font-weight: 700; letter-spacing: 3px; text-transform: uppercase; }
+  .problem .left h2 { font-size: clamp(36px, 4.5vw, 56px); line-height: 1.0; letter-spacing: -2px; font-weight: 800; margin-top: 16px; }
+  .problem .right { color: var(--slate-light); font-size: 18px; line-height: 1.65; }
+  .problem .right p + p { margin-top: 16px; }
+  .problem .right b { color: var(--bone); font-weight: 600; }
+
+  /* SOLUTIONS */
+  .solutions { padding: 110px 0; background: var(--paper); color: var(--ink); }
+  .solutions .head { display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; margin-bottom: 56px; flex-wrap: wrap; }
+  .solutions .head .eb { font-size: 13px; color: var(--green-deep); font-weight: 700; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 14px; }
+  .solutions .head h2 { font-size: clamp(40px, 5.5vw, 64px); line-height: 1.0; letter-spacing: -2px; font-weight: 800; max-width: 760px; }
+  .solutions .head h2 em { color: var(--slate); font-style: normal; font-weight: 400; }
+  .solutions .head p { color: var(--slate); font-size: 17px; max-width: 320px; line-height: 1.5; }
+
+  .scard {
+    background: var(--bone); border-radius: 28px; border: 1px solid var(--line-soft);
+    padding: 40px; position: relative; overflow: hidden;
+    transition: transform .25s, box-shadow .25s;
+  }
+  .scard:hover { transform: translateY(-4px); box-shadow: 0 30px 60px rgba(10,10,11,.08); }
+  .scard.dark { background: var(--ink); color: var(--bone); border-color: var(--ink); }
+  .scard.featured { border: 2px solid var(--ink); position: relative; }
+  .scard.featured::after { content:"LEAD PRODUCT"; position: absolute; top: 24px; right: 24px; background: var(--green); color: var(--ink); padding: 6px 12px; border-radius: 6px; font-size: 11px; font-weight: 800; letter-spacing: 1.5px; }
+  .scard .num { font-size: 13px; color: var(--slate); font-weight: 700; letter-spacing: 2px; }
+  .scard.dark .num { color: var(--green); }
+  .scard.featured .num { color: var(--ink); font-weight: 800; }
+  .scard h3 {
+    font-size: 36px; font-weight: 800; letter-spacing: -1.2px;
+    margin-top: 18px; line-height: 1.0; max-width: 480px;
+  }
+  .scard p {
+    color: var(--slate); margin-top: 18px; font-size: 16px;
+    line-height: 1.6; max-width: 520px;
+  }
+  .scard.dark p { color: rgba(255,255,255,.65); }
+  .scard ul { margin-top: 26px; list-style: none; }
+  .scard li {
+    padding: 11px 0; font-size: 14px; display: flex; gap: 12px;
+    align-items: flex-start; border-top: 1px solid var(--line-soft);
+  }
+  .scard.dark li { border-top-color: rgba(255,255,255,.08); }
+  .scard li:first-child { border-top: 0; }
+  .scard li::before {
+    content:""; flex: 0 0 auto; width: 18px; height: 18px; margin-top: 1px;
+    background: var(--green); border-radius: 5px;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='black' d='M6.5 12 2 7.5l1.4-1.4 3.1 3.1L12.6 3.5 14 5z'/%3E%3C/svg%3E") center/12px no-repeat;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='black' d='M6.5 12 2 7.5l1.4-1.4 3.1 3.1L12.6 3.5 14 5z'/%3E%3C/svg%3E") center/12px no-repeat;
+  }
+  .scard .meta { margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--line-soft); display: flex; justify-content: space-between; align-items: center; }
+  .scard.dark .meta { border-top-color: rgba(255,255,255,.08); }
+  .scard .meta .lbl { font-size: 12px; color: var(--slate); letter-spacing: 1.5px; font-weight: 700; }
+  .scard .meta .v { font-size: 18px; font-weight: 800; }
+  .scard.dark .meta .v { color: var(--green); }
+
+  .sgrid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 20px; }
+  .sgrid .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+  /* PROCESS */
+  .process { padding: 110px 0; }
+  .process .head { display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; margin-bottom: 64px; flex-wrap: wrap; }
+  .process .head .eb { font-size: 13px; color: var(--green); font-weight: 700; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 14px; }
+  .process .head h2 { font-size: clamp(40px, 5.5vw, 64px); line-height: 1.0; letter-spacing: -2px; font-weight: 800; max-width: 700px; }
+  .process .head p { color: var(--slate-light); font-size: 17px; max-width: 360px; line-height: 1.5; }
+  .process .timeline { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .pstep { padding: 32px 28px; border-radius: 22px; border: 1px solid var(--line); background: var(--ink-2); position: relative; }
+  .pstep .n { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background: var(--green); color: var(--ink); font-weight: 800; font-size: 14px; }
+  .pstep .when { font-size: 12px; color: var(--green); margin-top: 16px; font-weight: 700; letter-spacing: 1.5px; }
+  .pstep h4 { font-size: 24px; font-weight: 700; margin-top: 6px; letter-spacing: -.5px; line-height: 1.05; }
+  .pstep p { color: var(--slate-light); margin-top: 14px; font-size: 14px; line-height: 1.55; }
+
+  /* CASE STUDY */
+  .case { padding: 0 0 110px; }
+  .case .card {
+    background: var(--ink-2); border-radius: 32px; padding: 64px;
+    border: 1px solid var(--line); display: grid;
+    grid-template-columns: 1.2fr 1fr; gap: 64px; align-items: center;
+    position: relative; overflow: hidden;
+  }
+  .case .card::before { content:""; position: absolute; right: -120px; top: -60px; width: 460px; height: 460px; background: radial-gradient(circle, rgba(0,255,136,.18) 0%, rgba(0,255,136,0) 60%); }
+  .case .eb { font-size: 13px; color: var(--green); font-weight: 700; letter-spacing: 3px; text-transform: uppercase; }
+  .case h2 { font-size: clamp(36px, 4.5vw, 52px); font-weight: 800; letter-spacing: -1.5px; line-height: 1.05; margin-top: 14px; }
+  .case .quote { font-size: 17px; color: var(--slate-light); margin-top: 26px; line-height: 1.65; max-width: 540px; }
+  .case .meta { margin-top: 36px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .case .meta .v { font-size: 32px; font-weight: 800; letter-spacing: -1px; color: var(--bone); }
+  .case .meta .l { font-size: 12px; color: var(--slate); margin-top: 4px; letter-spacing: .5px; }
+  .case .ctas { margin-top: 36px; display: flex; gap: 12px; }
+  .case .visual {
+    background: var(--ink-3); border: 1px solid var(--line);
+    border-radius: 20px; padding: 36px; position: relative;
+  }
+  .case .visual .badge { display: inline-block; padding: 6px 12px; background: rgba(0,255,136,.12); color: var(--green); border-radius: 999px; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; }
+  .case .visual h3 { font-size: 26px; font-weight: 800; margin-top: 18px; line-height: 1.1; letter-spacing: -.8px; }
+  .case .visual .pills { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .case .visual .pill { display: inline-block; padding: 4px 10px; background: rgba(255,255,255,.05); border-radius: 6px; font-size: 11px; color: var(--slate-light); }
+  .case .visual .lift { background: var(--ink); border: 1px solid var(--line); padding: 22px; border-radius: 14px; margin-top: 26px; }
+  .case .visual .lift .l { font-size: 11px; color: var(--slate); letter-spacing: 1.5px; font-weight: 700; }
+  .case .visual .lift .v { font-size: 44px; font-weight: 800; color: var(--green); margin-top: 6px; line-height: 1; letter-spacing: -1px; }
+  .case .visual .lift .b { font-size: 13px; color: var(--slate-light); margin-top: 8px; line-height: 1.5; }
+
+  /* WHY (comparison) */
+  .why { padding: 110px 0; background: var(--paper); color: var(--ink); }
+  .why .head { text-align: center; margin-bottom: 64px; }
+  .why .head .eb { font-size: 13px; color: var(--green-deep); font-weight: 700; letter-spacing: 3px; text-transform: uppercase; }
+  .why .head h2 { font-size: clamp(40px, 5.5vw, 64px); font-weight: 800; letter-spacing: -2px; line-height: 1; margin-top: 16px; }
+  .why .table { background: var(--bone); border-radius: 24px; border: 1px solid var(--line-soft); overflow: hidden; max-width: 1080px; margin: 0 auto; }
+  .why .row { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; padding: 22px 32px; border-bottom: 1px solid var(--line-soft); align-items: center; gap: 16px; }
+  .why .row.h { background: var(--paper); font-size: 12px; color: var(--slate); font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; }
+  .why .row:last-child { border-bottom: 0; }
+  .why .row .label { font-weight: 600; }
+  .why .row .cell { font-size: 14px; color: var(--slate); display: flex; align-items: center; gap: 8px; }
+  .why .row .cell.yes { color: var(--ink); font-weight: 700; }
+  .why .row .cell.yes::before { content:""; width: 18px; height: 18px; background: var(--green); border-radius: 50%; flex: 0 0 auto; }
+  .why .row .cell.no::before { content:"×"; color: var(--slate-light); font-size: 22px; line-height: 1; font-weight: 600; }
+
+  /* PRICING */
+  .pricing { padding: 110px 0; }
+  .pricing .head { text-align: center; margin-bottom: 56px; }
+  .pricing .eb { font-size: 13px; color: var(--green); font-weight: 700; letter-spacing: 3px; text-transform: uppercase; }
+  .pricing h2 { font-size: clamp(40px, 5.5vw, 64px); font-weight: 800; letter-spacing: -2px; line-height: 1; margin-top: 14px; }
+  .pricing h2 em { font-style: italic; font-weight: 400; color: var(--slate-light); }
+  .pricing .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .price-card { background: var(--ink-2); border: 1px solid var(--line); border-radius: 24px; padding: 36px; }
+  .price-card.featured { background: var(--bone); color: var(--ink); border-color: var(--bone); position: relative; }
+  .price-card.featured::before { content:"MOST CHOSEN"; position: absolute; top: 22px; right: 22px; background: var(--green); color: var(--ink); font-size: 10px; padding: 5px 9px; border-radius: 6px; font-weight: 800; letter-spacing: 1.5px; }
+  .price-card .name { font-size: 13px; color: var(--green); font-weight: 800; letter-spacing: 2px; text-transform: uppercase; }
+  .price-card.featured .name { color: var(--ink); }
+  .price-card .amount { display: flex; align-items: baseline; gap: 8px; margin-top: 14px; }
+  .price-card .amount .from { font-size: 14px; color: var(--slate); }
+  .price-card .amount .num { font-size: 56px; font-weight: 800; letter-spacing: -2px; line-height: 1; }
+  .price-card .amount .per { font-size: 15px; color: var(--slate); font-weight: 600; }
+  .price-card.featured .amount .from, .price-card.featured .amount .per { color: var(--slate); }
+  .price-card .desc { color: var(--slate-light); margin-top: 16px; font-size: 14px; line-height: 1.55; min-height: 44px; }
+  .price-card.featured .desc { color: var(--slate); }
+  .price-card .btn { width: 100%; justify-content: center; margin-top: 28px; }
+  .price-card ul { list-style: none; margin-top: 28px; }
+  .price-card li { padding: 9px 0; font-size: 14px; border-top: 1px solid var(--line); display: flex; gap: 10px; color: var(--slate-light); }
+  .price-card.featured li { border-top-color: var(--line-soft); color: var(--char); }
+  .price-card li:first-child { border-top: 0; }
+  .price-card li::before { content:"+"; color: var(--green); font-weight: 700; flex: 0 0 auto; width: 16px; }
+  .price-card.featured li::before { color: var(--ink); }
+
+  /* FAQ */
+  .faq { padding: 110px 0; }
+  .faq .layout { display: grid; grid-template-columns: 1fr 1.7fr; gap: 80px; align-items: flex-start; }
+  .faq h2 { font-size: clamp(36px, 4.5vw, 56px); line-height: 1.0; letter-spacing: -2px; font-weight: 800; }
+  .faq .lede { color: var(--slate-light); margin-top: 18px; font-size: 17px; line-height: 1.6; }
+  .faq .lede a { color: var(--green); border-bottom: 1.5px solid var(--green); }
+  .faq .item { padding: 28px 0; border-top: 1px solid var(--line); }
+  .faq .item:last-child { border-bottom: 1px solid var(--line); }
+  .faq .item .q { font-size: 19px; font-weight: 700; letter-spacing: -.5px; }
+  .faq .item .a { color: var(--slate-light); margin-top: 10px; font-size: 15px; line-height: 1.65; }
+
+  /* CTA */
+  .cta-section { padding: 110px 0; }
+  .cta { background: var(--ink-2); border: 1px solid var(--line); border-radius: 32px; padding: 110px 64px; position: relative; overflow: hidden; text-align: center; }
+  .cta::before { content:""; position: absolute; left: 50%; top: 50%; width: 800px; height: 800px; background: radial-gradient(circle, rgba(0,255,136,.16) 0%, rgba(0,255,136,0) 55%); transform: translate(-50%,-50%); }
+  .cta h2 { font-size: clamp(48px, 7vw, 96px); font-weight: 800; letter-spacing: -3px; line-height: 1.0; max-width: 920px; margin: 0 auto; position: relative; }
+  .cta h2 .accent { background: var(--green); color: var(--ink); padding: 0 16px; border-radius: 14px; display: inline-block; transform: rotate(-1deg); }
+  .cta p { color: var(--slate-light); font-size: 19px; margin-top: 28px; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.55; position: relative; }
+  .cta .ctas { margin-top: 44px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; position: relative; }
+
+  /* FOOTER */
+  footer { padding: 80px 0 40px; border-top: 1px solid var(--line); }
+  footer .grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 48px; }
+  footer .brand-block .tag { color: var(--slate-light); margin-top: 18px; font-size: 14px; max-width: 320px; line-height: 1.6; }
+  footer .brand-block .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 22px; letter-spacing: -.5px; }
+  footer .brand-block .mark { width: 32px; height: 32px; position: relative; flex: 0 0 auto; }
+  footer .brand-block .mark .ring { width: 100%; height: 100%; border: 1.5px solid rgba(255,255,255,.6); border-radius: 50%; transform: rotate(-20deg); }
+  footer .brand-block .mark .planet { position: absolute; right: -2px; top: 2px; width: 10px; height: 10px; background: var(--green); border-radius: 50%; box-shadow: 0 0 12px var(--green-glow); }
+  footer .brand-block .dot-suffix { color: var(--green); }
+  footer h5 { font-size: 12px; letter-spacing: 2px; color: var(--slate); font-weight: 700; text-transform: uppercase; margin-bottom: 18px; }
+  footer .col a { display: block; padding: 7px 0; font-size: 14px; color: var(--slate-light); transition: color .15s; }
+  footer .col a:hover { color: var(--bone); }
+  footer .bottom { margin-top: 64px; padding-top: 28px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; font-size: 13px; color: var(--slate); }
+
+  /* CONTACT FORM */
+  .lead-form { max-width: 760px; margin: 56px auto 0; text-align: left; position: relative; }
+  .lead-form .hp { position: absolute; left: -9999px; top: -9999px; }
+  .lead-form .row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .lead-form .field { margin-top: 14px; }
+  .lead-form .row .field { margin-top: 0; }
+  .lead-form .field label {
+    display: block; font-size: 12px; font-weight: 700; letter-spacing: 1.2px;
+    text-transform: uppercase; color: var(--slate); margin-bottom: 8px;
+  }
+  .lead-form .field label .hint { color: var(--slate-light); font-weight: 500; text-transform: none; letter-spacing: 0; font-size: 12px; }
+  .lead-form input[type="text"],
+  .lead-form input[type="email"],
+  .lead-form select,
+  .lead-form textarea {
+    width: 100%; padding: 14px 16px; border-radius: 12px;
+    border: 1px solid var(--line); background: var(--ink);
+    color: var(--bone); font-family: inherit; font-size: 15px;
+    transition: border-color .15s, background .15s;
+  }
+  .lead-form input:focus, .lead-form select:focus, .lead-form textarea:focus {
+    outline: none; border-color: var(--green); background: rgba(0,255,136,.04);
+  }
+  .lead-form select { appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%236B6B76'%3E%3Cpath d='M8 11 3 6h10z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; background-size: 14px; padding-right: 40px; }
+  .lead-form textarea { resize: vertical; min-height: 100px; line-height: 1.5; }
+  .lead-form .checks { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px; }
+  .lead-form .check {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 10px 14px; border-radius: 10px;
+    border: 1px solid var(--line); background: var(--ink);
+    cursor: pointer; font-size: 14px; transition: all .15s;
+  }
+  .lead-form .check:hover { border-color: rgba(0,255,136,.4); }
+  .lead-form .check input { accent-color: var(--green); }
+  .lead-form .check input:checked + span { color: var(--green); font-weight: 600; }
+  .lead-form .actions {
+    margin-top: 24px; display: flex; align-items: center; gap: 18px;
+    justify-content: flex-start; flex-wrap: wrap;
+  }
+  .lead-form .actions .btn { padding: 16px 28px; }
+  .lead-form button { font-family: inherit; cursor: pointer; border: 0; }
+  .lead-form .alt { color: var(--slate-light); font-size: 14px; }
+  .lead-form .alt a { color: var(--green); border-bottom: 1px solid var(--green); }
+  .lead-form .legal { color: var(--slate); font-size: 12px; margin-top: 16px; }
+
+  .form-success { display: none; max-width: 640px; margin: 56px auto 0; text-align: center; padding: 40px 28px; border-radius: 20px; background: rgba(0,255,136,.05); border: 1px solid rgba(0,255,136,.25); }
+  .form-success.show { display: block; }
+  .form-success .tick { width: 56px; height: 56px; border-radius: 50%; background: var(--green); color: var(--ink); margin: 0 auto 18px; font-size: 28px; font-weight: 800; display: flex; align-items: center; justify-content: center; }
+  .form-success h3 { font-size: 24px; font-weight: 800; letter-spacing: -.5px; }
+  .form-success p { color: var(--slate-light); margin-top: 12px; font-size: 15px; line-height: 1.55; }
+  .form-success a { color: var(--green); border-bottom: 1px solid var(--green); }
+
+  /* MOBILE */
+  @media (max-width: 900px) {
+    section { padding: 72px 0; }
+    .wrap { padding: 0 20px; }
+    nav.top .links { display: none; }
+    nav.top .nav-actions .btn-ghost { display: none; }
+    .hero { padding: 48px 0 80px; }
+    .hero h1 { letter-spacing: -1.5px; }
+    .hero .lede { font-size: 17px; margin-top: 26px; }
+    .hero .stats { grid-template-columns: repeat(2, 1fr); margin-top: 64px; gap: 32px 16px; }
+    .problem .grid { grid-template-columns: 1fr; gap: 32px; }
+    .problem { padding: 64px 0; }
+    .solutions { padding: 72px 0; }
+    .sgrid { grid-template-columns: 1fr; }
+    .sgrid .row2 { grid-template-columns: 1fr; }
+    .scard { padding: 32px 28px; }
+    .scard h3 { font-size: 28px; }
+    .process { padding: 72px 0; }
+    .process .timeline { grid-template-columns: 1fr; }
+    .case .card { grid-template-columns: 1fr; padding: 40px 28px; gap: 36px; border-radius: 24px; }
+    .case h2 { font-size: 32px; }
+    .case .visual { padding: 28px; }
+    .why { padding: 72px 0; }
+    .why .row { grid-template-columns: 1fr; gap: 4px; padding: 18px 22px; }
+    .why .row.h { display: none; }
+    .why .row .label { font-size: 16px; margin-bottom: 8px; }
+    .why .row .cell::after { content: attr(data-h); margin-left: 10px; color: var(--slate); font-size: 11px; letter-spacing: 1px; text-transform: uppercase; font-weight: 600; }
+    .pricing .grid { grid-template-columns: 1fr; }
+    .faq .layout { grid-template-columns: 1fr; gap: 36px; }
+    .cta-section { padding: 72px 0; }
+    .cta { padding: 72px 28px; border-radius: 24px; }
+    .lead-form .row { grid-template-columns: 1fr; gap: 14px; }
+    .lead-form .row .field { margin-top: 14px; }
+    .lead-form .row .field:first-child { margin-top: 0; }
+    .lead-form .actions { flex-direction: column; align-items: stretch; }
+    .lead-form .actions .btn { justify-content: center; }
+    .lead-form .alt { text-align: center; }
+    footer .grid { grid-template-columns: 1fr 1fr; gap: 36px 24px; }
+    footer .grid .brand-block { grid-column: 1 / -1; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="top" id="topnav">
+  <div class="wrap">
+    <div class="row">
+      <a class="brand" href="#">
+        <span class="mark"><span class="ring"></span><span class="planet"></span></span>
+        <span>Kepler<span class="dot-suffix">.studio</span></span>
+      </a>
+      <div class="links">
+        <a href="#solutions">Solutions</a>
+        <a href="#process">Process</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <a href="#contact" class="btn btn-ghost">Sign in</a>
+        <a href="#contact" class="btn btn-green">Book a call <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <svg class="stars" viewBox="0 0 1440 800" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <g fill="#fff">
+      <circle cx="120" cy="80" r="1" opacity=".4"/>
+      <circle cx="280" cy="180" r="1.5" opacity=".5"/>
+      <circle cx="420" cy="60" r="1" opacity=".3"/>
+      <circle cx="640" cy="220" r="1" opacity=".4"/>
+      <circle cx="820" cy="120" r="2" opacity=".55"/>
+      <circle cx="1040" cy="80" r="1" opacity=".35"/>
+      <circle cx="1180" cy="200" r="1.5" opacity=".5"/>
+      <circle cx="1320" cy="60" r="1" opacity=".4"/>
+      <circle cx="80" cy="380" r="1" opacity=".4"/>
+      <circle cx="320" cy="480" r="1.5" opacity=".45"/>
+      <circle cx="560" cy="380" r="1" opacity=".3"/>
+      <circle cx="780" cy="500" r="1" opacity=".35"/>
+      <circle cx="980" cy="420" r="2" opacity=".5"/>
+      <circle cx="1200" cy="500" r="1" opacity=".4"/>
+      <circle cx="1380" cy="380" r="1.5" opacity=".45"/>
+      <circle cx="180" cy="640" r="1" opacity=".4"/>
+      <circle cx="440" cy="720" r="1.5" opacity=".5"/>
+      <circle cx="700" cy="660" r="1" opacity=".35"/>
+      <circle cx="920" cy="700" r="1" opacity=".4"/>
+      <circle cx="1140" cy="640" r="2" opacity=".55"/>
+      <circle cx="1340" cy="720" r="1" opacity=".4"/>
+    </g>
+    <!-- soft orbital ring -->
+    <ellipse cx="1180" cy="280" rx="320" ry="80" fill="none" stroke="rgba(0,255,136,.15)" stroke-width="1" transform="rotate(-15 1180 280)"/>
+    <ellipse cx="1180" cy="280" rx="220" ry="55" fill="none" stroke="rgba(0,255,136,.1)" stroke-width="1" transform="rotate(-15 1180 280)"/>
+  </svg>
+
+  <div class="wrap">
+    <span class="eyebrow"><span class="pulse"></span>Lead-capture engineering · CRM · Automations · AI Agents</span>
+    <h1>Websites that capture <span class="accent">real leads</span>.<br><em>Then everything you need to close them.</em></h1>
+    <p class="lede">Most websites are brochures. Yours should be a <b>sales engine</b> — built to capture intent, qualify it automatically, and route it into a CRM that converts. Kepler designs the front door and the engine room.</p>
+    <div class="ctas">
+      <a class="btn btn-green" href="#contact">Book a 30-min strategy call <span class="arrow">→</span></a>
+      <a class="btn btn-ghost" href="#solutions">See the solutions</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="v">2.4×</div><div class="l">Avg. lead conversion lift</div></div>
+      <div class="stat"><div class="v">−60%</div><div class="l">Reduction in manual follow-up</div></div>
+      <div class="stat"><div class="v">6 wks</div><div class="l">From kickoff to live</div></div>
+      <div class="stat"><div class="v">£180</div><div class="l">Starting monthly retainer</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- PROBLEM -->
+<section class="problem">
+  <div class="wrap">
+    <div class="grid">
+      <div class="left">
+        <div class="eb">The problem</div>
+        <h2>Your website is a brochure. It should be a sales engine.</h2>
+      </div>
+      <div class="right">
+        <p>You're paying for traffic — Google Ads, Meta, SEO, referrals — and most of it lands on a page that asks visitors to scroll, read, find a phone number, and call you back during office hours. <b>That's a leaky funnel by design.</b></p>
+        <p>The leads that do come through end up in three different inboxes, a notebook, and someone's WhatsApp. By the time you follow up, they've booked with the competitor next door.</p>
+        <p>Kepler rebuilds the front door (a website that actually captures leads) and the engine behind it (CRM, automations, AI agents) so nothing falls through the gaps.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTIONS -->
+<section id="solutions" class="solutions">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <div class="eb">Solutions</div>
+        <h2>Four moving parts. <em>One sales engine.</em></h2>
+      </div>
+      <p>Start with the website. Layer in the rest as you grow. Everything talks to itself by default.</p>
+    </div>
+    <div class="sgrid">
+
+      <!-- Hero solution: Lead-capture websites -->
+      <div class="scard featured">
+        <div class="num">01 — WEBSITES THAT CAPTURE</div>
+        <h3>Lead-capture websites built on physics, not vibes.</h3>
+        <p>Every page designed for one job: turn a stranger into a qualified lead. No vanity hero videos, no menu archeology, no contact-form-shaped black holes. Built to load fast, convert, and feed your CRM.</p>
+        <ul>
+          <li>Conversion-optimised pages — measured, A/B tested, iterated</li>
+          <li>Smart forms with conditional fields and progressive profiling</li>
+          <li>Booking, payments, gated content native to the site</li>
+          <li>Heatmaps, session recordings &amp; funnel analytics built in</li>
+          <li>Forms post directly into your CRM — no Zapier glue</li>
+        </ul>
+        <div class="meta">
+          <div><div class="lbl">DELIVERY</div><div class="v" style="color:var(--ink)">4–6 weeks</div></div>
+          <div><div class="lbl">FROM</div><div class="v" style="color:var(--ink)">£2,400</div></div>
+        </div>
+      </div>
+
+      <div class="scard dark">
+        <div class="num">02 — CRM</div>
+        <h3>The engine room: a CRM your team will actually open.</h3>
+        <p>Captured leads land in a CRM tuned for service businesses — pipeline stages, lead scoring, follow-up cadences, native messaging. Lightweight where it should be, deep where it matters.</p>
+        <ul>
+          <li>Custom pipelines per service or location</li>
+          <li>Email + WhatsApp + SMS in one thread</li>
+          <li>Lead scoring by source, behaviour and intent</li>
+          <li>Imports from Pipedrive, HubSpot, Salesforce</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sgrid row2" style="margin-top: 20px;">
+      <div class="scard">
+        <div class="num">03 — AUTOMATIONS</div>
+        <h3>Automations that work the night shift.</h3>
+        <p>Triggers, conditions, branching logic — every repetitive task off your team's plate. Reminders, follow-ups, lead routing, post-purchase sequences, churn rescue. Set once, ship value forever.</p>
+        <ul>
+          <li>500+ pre-built integrations (Stripe, Calendly, Slack, etc.)</li>
+          <li>Multi-step branching flows with error handling</li>
+          <li>Scheduled, webhook-driven, or event-driven</li>
+          <li>Audit logs and one-click rollback per run</li>
+        </ul>
+      </div>
+      <div class="scard dark">
+        <div class="num">04 — AI AGENTS</div>
+        <h3>Agents that pick up the phone at 3am.</h3>
+        <p>Trained on your business — products, prices, policies — and let loose to qualify leads, answer FAQs, book meetings, and follow up. Hands off to a human the second it matters.</p>
+        <ul>
+          <li>Voice and chat, deployed in under a week</li>
+          <li>Pulls from your CRM, calendar &amp; inventory live</li>
+          <li>Human handoff with full conversation context</li>
+          <li>Priced per resolved lead, not per token</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process" class="process">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <div class="eb">How we work</div>
+        <h2>Four phases.<br>One fixed price.</h2>
+      </div>
+      <p>No retainers that drift, no scope creep, no surprise invoices. The full plan and the full price land on day one.</p>
+    </div>
+    <div class="timeline">
+      <div class="pstep">
+        <div class="n">1</div>
+        <div class="when">WEEK 0</div>
+        <h4>Strategy call</h4>
+        <p>30 minutes. We map your funnel, find the leak, and write you a free 1-page audit. You decide whether to continue.</p>
+      </div>
+      <div class="pstep">
+        <div class="n">2</div>
+        <div class="when">WEEKS 1–2</div>
+        <h4>Design &amp; spec</h4>
+        <p>Wireframes, copy, design system. You see a clickable prototype before a single line of code is written.</p>
+      </div>
+      <div class="pstep">
+        <div class="n">3</div>
+        <div class="when">WEEKS 3–6</div>
+        <h4>Build &amp; integrate</h4>
+        <p>Live staging on day 14. CRM hooked up, automations live, agents trained. We test on real traffic before launch.</p>
+      </div>
+      <div class="pstep">
+        <div class="n">4</div>
+        <div class="when">ONGOING</div>
+        <h4>Run &amp; optimise</h4>
+        <p>Hosting, monitoring, content updates, monthly conversion reports, quarterly rebuild of weakest pages. Cancel anytime.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="why">
+  <div class="wrap">
+    <div class="head">
+      <div class="eb">Why Kepler</div>
+      <h2>One bill. One platform. One team.</h2>
+    </div>
+    <div class="table">
+      <div class="row h">
+        <div class="label">&nbsp;</div>
+        <div class="cell">Hire in-house</div>
+        <div class="cell">Stitch SaaS tools</div>
+        <div class="cell">Use Kepler</div>
+      </div>
+      <div class="row">
+        <div class="label">Time to first launch</div>
+        <div class="cell" data-h="In-house">3–6 months</div>
+        <div class="cell" data-h="SaaS">2–4 weeks</div>
+        <div class="cell yes" data-h="Kepler">6 weeks, fixed</div>
+      </div>
+      <div class="row">
+        <div class="label">Yearly cost (typical)</div>
+        <div class="cell" data-h="In-house">£80–150k</div>
+        <div class="cell" data-h="SaaS">£8–20k + setup</div>
+        <div class="cell yes" data-h="Kepler">£2.4k+£2.2k/yr</div>
+      </div>
+      <div class="row">
+        <div class="label">Built around lead capture</div>
+        <div class="cell" data-h="In-house">If you're lucky</div>
+        <div class="cell no" data-h="SaaS">No</div>
+        <div class="cell yes" data-h="Kepler">By default</div>
+      </div>
+      <div class="row">
+        <div class="label">You own the code &amp; data</div>
+        <div class="cell yes" data-h="In-house">Yes</div>
+        <div class="cell no" data-h="SaaS">No</div>
+        <div class="cell yes" data-h="Kepler">Yes</div>
+      </div>
+      <div class="row">
+        <div class="label">Cancel any month</div>
+        <div class="cell no" data-h="In-house">Hiring drama</div>
+        <div class="cell" data-h="SaaS">Annual lock-ins</div>
+        <div class="cell yes" data-h="Kepler">30-day notice</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" class="pricing">
+  <div class="wrap">
+    <div class="head">
+      <div class="eb">Pricing</div>
+      <h2>Honest numbers, <em>no surprises.</em></h2>
+    </div>
+    <div class="grid">
+      <div class="price-card">
+        <div class="name">Launch</div>
+        <div class="amount"><span class="from">from</span><span class="num">£2.4k</span></div>
+        <div class="desc">Lead-capture website + booking. Perfect for a single-location service business.</div>
+        <ul>
+          <li>Up to 8 pages, custom design</li>
+          <li>Booking flow + Stripe payments</li>
+          <li>Forms wired to your CRM</li>
+          <li>SEO &amp; analytics setup</li>
+          <li>Live in 4 weeks</li>
+        </ul>
+        <a href="#contact" class="btn btn-ghost">Book a call</a>
+      </div>
+      <div class="price-card featured">
+        <div class="name">Operate</div>
+        <div class="amount"><span class="from">from</span><span class="num">£4.8k</span></div>
+        <div class="desc">Website + CRM + automations. The growth-engine package — where most operators land.</div>
+        <ul>
+          <li>Everything in Launch</li>
+          <li>CRM with custom pipelines</li>
+          <li>10+ automations live at launch</li>
+          <li>Reporting &amp; conversion dashboards</li>
+          <li>Live in 6 weeks</li>
+        </ul>
+        <a href="#contact" class="btn btn-green">Book a call</a>
+      </div>
+      <div class="price-card">
+        <div class="name">Scale</div>
+        <div class="amount"><span class="from">from</span><span class="num">£8k</span></div>
+        <div class="desc">Operate + AI agents. Hand the FAQs and follow-ups to software.</div>
+        <ul>
+          <li>Everything in Operate</li>
+          <li>Voice + chat AI agents</li>
+          <li>Trained on your business</li>
+          <li>Human handoff &amp; monitoring</li>
+          <li>Live in 8 weeks</li>
+        </ul>
+        <a href="#contact" class="btn btn-ghost">Book a call</a>
+      </div>
+    </div>
+    <p style="text-align:center; color:var(--slate-light); margin-top:32px; font-size:14px;">Plus monthly from £180. Stripe fees pass-through. No setup fees, no annual lock-in.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="faq">
+  <div class="wrap">
+    <div class="layout">
+      <div>
+        <h2>Common questions, straight answers.</h2>
+        <p class="lede">Don't see yours? <a href="mailto:hello@kepler.studio">Email hello@kepler.studio</a> and we'll reply within a working day.</p>
+      </div>
+      <div>
+        <div class="item"><div class="q">How long does a typical build take?</div><div class="a">Six weeks for the Operate package, four for Launch, eight for Scale. We commit to the date in the proposal — and we hit it.</div></div>
+        <div class="item"><div class="q">What does "captures real leads" actually mean?</div><div class="a">Forms designed around buyer intent, progressive profiling so visitors aren't asked for ten fields up-front, and analytics that show you which pages are bringing in real money — not just traffic. Every lead that comes through is qualified before it hits a sales rep.</div></div>
+        <div class="item"><div class="q">Do I own the website and the data?</div><div class="a">Yes — both. The code lives in a Git repo we hand over to you. The data lives in a database you can export at any time. If you ever leave Kepler, you walk out with everything.</div></div>
+        <div class="item"><div class="q">What if I want to leave?</div><div class="a">Give us 30 days notice. We export every asset, hand over credentials, document the stack, and stay reachable for 60 days while your new team gets settled.</div></div>
+        <div class="item"><div class="q">Can you integrate with what we already have?</div><div class="a">Almost certainly. We work with Stripe, Calendly, HubSpot, Pipedrive, Mailchimp, Klaviyo, ActiveCampaign, Twilio, and most CMSs. If it has an API, we can plug into it.</div></div>
+        <div class="item"><div class="q">Why not just hire someone in-house?</div><div class="a">Because one person can't be a designer, a CRM admin, an automations engineer and an AI specialist. Kepler gives you that team — and the systems they've already built — for less than the cost of one in-house hire.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA + CONTACT FORM -->
+<section id="contact" class="cta-section">
+  <div class="wrap">
+    <div class="cta">
+      <h2>Stop running a brochure.<br>Start running a <span class="accent">sales engine</span>.</h2>
+      <p>Book a 30-minute strategy call. We'll audit your current site, find the leak, and write you a one-page plan — free, whether or not you hire us.</p>
+
+      <form class="lead-form" id="leadForm" novalidate>
+        <p class="hp"><label>Don't fill this: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+
+        <div class="row">
+          <div class="field">
+            <label for="lf-name">Your name</label>
+            <input id="lf-name" name="name" type="text" required autocomplete="name" placeholder="Snayder Candido">
+          </div>
+          <div class="field">
+            <label for="lf-email">Work email</label>
+            <input id="lf-email" name="email" type="email" required autocomplete="email" placeholder="you@yourbusiness.com">
+          </div>
+        </div>
+        <div class="row">
+          <div class="field">
+            <label for="lf-business">Business / website</label>
+            <input id="lf-business" name="business" type="text" required placeholder="Lightning Motorcycle Training">
+          </div>
+          <div class="field">
+            <label for="lf-budget">Monthly budget</label>
+            <select id="lf-budget" name="budget" required>
+              <option value="">Pick a range</option>
+              <option>£200 – £500 / mo</option>
+              <option>£500 – £1,500 / mo</option>
+              <option>£1,500 – £5,000 / mo</option>
+              <option>£5,000+ / mo</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+        </div>
+        <div class="field full">
+          <label for="lf-need">What do you need help with?</label>
+          <textarea id="lf-need" name="need" rows="4" required placeholder="A new website, a CRM that doesn't suck, automations to handle leads at 2am, an AI agent that books calls — or all four."></textarea>
+        </div>
+        <div class="field full">
+          <label for="lf-products">Which solutions are you interested in? <span class="hint">(pick all that fit)</span></label>
+          <div class="checks">
+            <label class="check"><input type="checkbox" name="products" value="Lead-capture website"><span>Lead-capture website</span></label>
+            <label class="check"><input type="checkbox" name="products" value="CRM"><span>CRM</span></label>
+            <label class="check"><input type="checkbox" name="products" value="Automations"><span>Automations</span></label>
+            <label class="check"><input type="checkbox" name="products" value="AI agents"><span>AI agents</span></label>
+          </div>
+        </div>
+        <div class="actions">
+          <button type="submit" class="btn btn-green">Send &amp; book my call <span class="arrow">→</span></button>
+          <span class="alt">or email <a href="mailto:hello@kepler.studio">hello@kepler.studio</a></span>
+        </div>
+        <p class="legal">By submitting you agree to be contacted about your enquiry. We never share your email.</p>
+      </form>
+
+      <div class="form-success" id="formSuccess">
+        <div class="tick">✓</div>
+        <h3>Thanks — we'll be in touch within a working day.</h3>
+        <p>You'll get a reply from <b>hello@kepler.studio</b> with a calendar link and a couple of pre-call questions. While you wait, you can <a href="#solutions">browse the solutions</a> or read the <a href="#faq">FAQ</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="grid">
+      <div class="brand-block">
+        <a class="brand" href="#">
+          <span class="mark"><span class="ring"></span><span class="planet"></span></span>
+          <span>Kepler<span class="dot-suffix">.studio</span></span>
+        </a>
+        <p class="tag">Lead-capture engineering for ambitious operators. Websites, CRM, automations and AI agents — built and run as one platform.</p>
+      </div>
+      <div class="col">
+        <h5>Solutions</h5>
+        <a href="#solutions">Lead-capture websites</a>
+        <a href="#solutions">CRM</a>
+        <a href="#solutions">Automations</a>
+        <a href="#solutions">AI agents</a>
+      </div>
+      <div class="col">
+        <h5>Company</h5>
+        <a href="#process">Process</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="col">
+        <h5>Get in touch</h5>
+        <a href="mailto:hello@kepler.studio">hello@kepler.studio</a>
+        <a href="#contact">Book a call</a>
+      </div>
+    </div>
+    <div class="bottom">
+      <div>© 2026 Kepler Studio. All rights reserved.</div>
+      <div>Privacy · Terms · Cookies</div>
+    </div>
+  </div>
+</footer>
+
+<!-- Site config (Supabase URL + anon key live here) -->
+<script src="config.js"></script>
+
+<script>
+  // Sticky-nav border on scroll
+  (function() {
+    var n = document.getElementById('topnav');
+    function onScroll() {
+      if (window.scrollY > 8) n.classList.add('scrolled');
+      else n.classList.remove('scrolled');
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  })();
+
+  // Supabase config — set via Vercel env vars at build time, or hard-code for static hosting.
+  // For pure static sites you can paste these directly. The anon key is safe to expose in client-side code
+  // — it only grants whatever permissions you've allowed via Row Level Security.
+  var SUPABASE_URL  = window.SUPABASE_URL  || 'https://YOUR-PROJECT-REF.supabase.co';
+  var SUPABASE_ANON = window.SUPABASE_ANON || 'YOUR-ANON-KEY';
+
+  // Contact form → Supabase REST → on success, swap to success state
+  (function() {
+    var form = document.getElementById('leadForm');
+    var success = document.getElementById('formSuccess');
+    if (!form) return;
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      // Honeypot — silently drop bot submissions
+      var hp = form.querySelector('input[name="bot-field"]');
+      if (hp && hp.value) {
+        form.style.display = 'none';
+        success.classList.add('show');
+        return;
+      }
+
+      var btn = form.querySelector('button[type="submit"]');
+      var orig = btn.innerHTML;
+      btn.disabled = true; btn.innerHTML = 'Sending...';
+
+      // Collect products[] checkboxes into an array
+      var products = Array.from(form.querySelectorAll('input[name="products"]:checked')).map(function(cb) { return cb.value; });
+
+      var payload = {
+        name:     form.name.value.trim(),
+        email:    form.email.value.trim(),
+        business: form.business.value.trim(),
+        budget:   form.budget.value,
+        need:     form.need.value.trim(),
+        products: products,
+        source:   'kepler.studio',
+        submitted_at: new Date().toISOString(),
+        user_agent: navigator.userAgent,
+        referrer: document.referrer || null
+      };
+
+      fetch(SUPABASE_URL + '/rest/v1/leads', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'apikey': SUPABASE_ANON,
+          'Authorization': 'Bearer ' + SUPABASE_ANON,
+          'Prefer': 'return=minimal'
+        },
+        body: JSON.stringify(payload)
+      }).then(function(r) {
+        if (!r.ok) return r.text().then(function(t) { throw new Error(t || ('HTTP ' + r.status)); });
+        form.style.display = 'none';
+        success.classList.add('show');
+        success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }).catch(function(err) {
+        console.error('Supabase submit failed:', err);
+        btn.disabled = false; btn.innerHTML = orig;
+        alert('Sorry — something went wrong. Email hello@kepler.studio directly and we will sort it.');
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>
