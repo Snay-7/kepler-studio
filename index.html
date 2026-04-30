@@ -234,12 +234,6 @@
     background: var(--ink-3); border: 1px solid var(--line);
     border-radius: 20px; padding: 32px; position: relative;
   }
-  .case .visual.video { padding: 0; overflow: hidden; background: #000; }
-  .case .visual.video .frame { position: relative; width: 100%; aspect-ratio: 16 / 9; background: #0A0A0B; }
-  .case .visual.video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; }
-  .case .visual.video .meta { padding: 20px 24px; border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
-  .case .visual.video .stack { font-size: 12px; color: var(--slate); letter-spacing: 1.5px; text-transform: uppercase; font-weight: 700; }
-  .case .visual.video .live { margin: 0; }
   .case .visual .badge { display: inline-block; padding: 6px 12px; background: rgba(0,255,136,.12); color: var(--green); border-radius: 999px; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; }
   .case .visual h3 { font-size: 22px; font-weight: 800; margin-top: 16px; line-height: 1.15; letter-spacing: -.5px; }
   .case .visual .url { color: var(--slate-light); font-size: 13px; margin-top: 6px; }
@@ -252,6 +246,90 @@
   .case .visual .compare .row .after { font-size: 13px; color: var(--green); font-weight: 700; }
   .case .visual .live { margin-top: 22px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.06); display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--slate-light); letter-spacing: 1px; text-transform: uppercase; font-weight: 600; }
   .case .visual .live::before { content:""; width: 7px; height: 7px; background: var(--green); border-radius: 50%; box-shadow: 0 0 0 3px rgba(0,255,136,.2); }
+
+  /* VIDEO THUMBNAIL VARIANT — clickable poster, no iframe */
+  .case .visual.video-poster {
+    padding: 0;
+    overflow: hidden;
+    background: #000;
+    cursor: pointer;
+    display: block;
+    transition: transform .25s, box-shadow .25s;
+  }
+  .case .visual.video-poster:hover { transform: translateY(-3px); box-shadow: 0 30px 60px rgba(0,255,136,.18); }
+  .case .visual.video-poster .frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #0A0A0B;
+    overflow: hidden;
+  }
+  .case .visual.video-poster .frame img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .case .visual.video-poster .play-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,.25) 100%);
+    transition: background .2s;
+  }
+  .case .visual.video-poster:hover .play-overlay {
+    background: linear-gradient(180deg, rgba(0,0,0,.05) 0%, rgba(0,0,0,.35) 100%);
+  }
+  .case .visual.video-poster .play-button {
+    width: 88px; height: 88px;
+    background: var(--green);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 12px 40px rgba(0,255,136,.4), 0 0 0 8px rgba(0,255,136,.15);
+    transition: transform .2s;
+  }
+  .case .visual.video-poster:hover .play-button { transform: scale(1.08); }
+  .case .visual.video-poster .play-button::before {
+    content: "";
+    width: 0; height: 0;
+    border-left: 28px solid var(--ink);
+    border-top: 18px solid transparent;
+    border-bottom: 18px solid transparent;
+    margin-left: 8px;
+  }
+  .case .visual.video-poster .duration {
+    position: absolute;
+    bottom: 16px; right: 16px;
+    background: rgba(10,10,11,.85);
+    backdrop-filter: blur(8px);
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-family: "JetBrains Mono", "SF Mono", Monaco, monospace;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--bone);
+    letter-spacing: 1px;
+    border: 1px solid rgba(255,255,255,.1);
+  }
+  .case .visual.video-poster .meta {
+    padding: 18px 24px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    background: var(--ink-3);
+  }
+  .case .visual.video-poster .meta .live { margin: 0; padding: 0; border: 0; }
+  .case .visual.video-poster .meta .stack {
+    font-size: 11px; color: var(--slate);
+    letter-spacing: 1.5px; text-transform: uppercase; font-weight: 700;
+  }
 
   /* APPROACH */
   .approach { padding: 110px 0; }
@@ -385,7 +463,13 @@
     .case .card { grid-template-columns: 1fr; padding: 40px 28px; gap: 36px; border-radius: 24px; }
     .case h2 { font-size: 32px; }
     .case .visual { padding: 24px; }
-    .case .visual.video { padding: 0; }
+    .case .visual.video-poster { padding: 0; }
+    .case .visual.video-poster .play-button { width: 72px; height: 72px; }
+    .case .visual.video-poster .play-button::before {
+      border-left: 22px solid var(--ink);
+      border-top: 14px solid transparent;
+      border-bottom: 14px solid transparent;
+    }
     .approach { padding: 72px 0; }
     .approach .pillars { grid-template-columns: 1fr; }
     .why { padding: 72px 0; }
@@ -614,6 +698,7 @@
 <!-- CASE STUDY — VALORA + KLEPER AGENT -->
 <section id="work" class="case">
   <div class="wrap">
+
     <div class="card">
       <div>
         <div class="eb">Selected work</div>
@@ -678,20 +763,21 @@
           <a class="btn btn-ghost" href="#contact">Build something like this</a>
         </div>
       </div>
-      <div class="visual video">
+      <a class="visual video-poster" href="kleper-agent-16x9.html" target="_blank" rel="noopener" aria-label="Watch the 60-second Kleper Agent demo">
         <div class="frame">
-          <iframe
-            src="kleper-agent-16x9.html"
-            title="Kleper Agent — 60 second demo"
-            allow="autoplay; fullscreen"
-            loading="lazy"></iframe>
+          <img src="kleper-thumbnail-16x9.png" alt="Kleper Agent — 60-second demo thumbnail" loading="lazy">
+          <div class="play-overlay">
+            <div class="play-button"></div>
+          </div>
+          <div class="duration">60s · DEMO</div>
         </div>
         <div class="meta">
           <div class="live">Live in production</div>
           <div class="stack">Python · Claude · Playwright</div>
         </div>
-      </div>
+      </a>
     </div>
+
   </div>
 </section>
 
