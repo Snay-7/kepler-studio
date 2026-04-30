@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-<title>Kleper — Websites that capture real leads</title>
-<meta name="description" content="Kleper builds websites that capture real leads — and the CRM, automations and AI agents that turn them into customers. From £2.4k.">
+<title>Kleper — AI-native software for ambitious businesses</title>
+<meta name="description" content="Kleper designs and builds AI-native software — websites, custom platforms, AI co-pilots, and integrations — for ambitious businesses across finance, real estate, life sciences, e-commerce, hospitality, legal and consumer brands.">
 <meta name="theme-color" content="#0A0A0B">
 <meta name="author" content="Kleper Studio">
 <link rel="canonical" href="https://kleper.studio/">
@@ -12,19 +12,19 @@
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://kleper.studio/">
-<meta property="og:title" content="Kleper — Websites that capture real leads">
-<meta property="og:description" content="Lead-capture engineering for ambitious operators. Websites, CRM, automations and AI agents — built and run as one platform.">
+<meta property="og:title" content="Kleper — AI-native software for ambitious businesses">
+<meta property="og:description" content="Websites, custom platforms, and AI built into one operating system. For founders who treat their software as a competitive advantage.">
 <meta property="og:image" content="https://kleper.studio/og-image.png">
 <meta property="og:site_name" content="Kleper Studio">
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:url" content="https://kleper.studio/">
-<meta name="twitter:title" content="Kleper — Websites that capture real leads">
-<meta name="twitter:description" content="Lead-capture engineering for ambitious operators. Websites, CRM, automations and AI agents — built and run as one platform.">
+<meta name="twitter:title" content="Kleper — AI-native software for ambitious businesses">
+<meta name="twitter:description" content="Websites, custom platforms, and AI built into one operating system. For founders who treat their software as a competitive advantage.">
 <meta name="twitter:image" content="https://kleper.studio/og-image.png">
 
-<!-- Favicon (inline SVG so it works on every host) -->
+<!-- Favicon -->
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230A0A0B'/%3E%3Cellipse cx='16' cy='16' rx='12' ry='5' fill='none' stroke='white' stroke-width='1.4' transform='rotate(-20 16 16)'/%3E%3Ccircle cx='25' cy='10' r='4.5' fill='%2300FF88'/%3E%3Ccircle cx='16' cy='16' r='1.5' fill='white'/%3E%3C/svg%3E">
 <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='32' fill='%230A0A0B'/%3E%3Cellipse cx='90' cy='90' rx='66' ry='28' fill='none' stroke='white' stroke-width='6' transform='rotate(-20 90 90)'/%3E%3Ccircle cx='140' cy='56' r='24' fill='%2300FF88'/%3E%3Ccircle cx='90' cy='90' r='8' fill='white'/%3E%3C/svg%3E">
 
@@ -74,6 +74,8 @@
   .btn-white:hover { transform: translateY(-1px); }
   .btn-ghost { background: transparent; color: var(--bone); border: 1.5px solid rgba(255,255,255,.2); }
   .btn-ghost:hover { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.4); }
+  .btn-dark { background: var(--ink); color: var(--bone); }
+  .btn-dark:hover { transform: translateY(-1px); }
   .btn .arrow { transition: transform .18s; }
   .btn:hover .arrow { transform: translateX(3px); }
 
@@ -101,7 +103,7 @@
 
   /* HERO */
   .hero { padding: 80px 0 130px; position: relative; overflow: hidden; }
-  .hero::before { /* stars/dots */
+  .hero::before {
     content:""; position: absolute; inset: 0;
     background:
       radial-gradient(circle at 80% 20%, rgba(0,255,136,.08) 0%, transparent 40%),
@@ -129,22 +131,19 @@
   }
   .hero h1 em { font-style: normal; color: var(--slate-light); font-weight: 800; }
   .hero .lede {
-    font-size: 22px; color: var(--slate-light); margin-top: 36px; max-width: 720px;
+    font-size: 22px; color: var(--slate-light); margin-top: 36px; max-width: 760px;
     line-height: 1.5;
   }
   .hero .lede b { color: var(--bone); font-weight: 600; }
   .hero .ctas { display: flex; gap: 14px; margin-top: 50px; flex-wrap: wrap; }
-  .hero .stats {
-    display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
-    margin-top: 96px; padding-top: 48px; border-top: 1px solid var(--line);
+  .hero .industries {
+    margin-top: 70px; padding-top: 36px; border-top: 1px solid var(--line);
+    color: var(--slate); font-size: 13px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600;
   }
-  .hero .stat .v {
-    font-size: 44px; font-weight: 800; letter-spacing: -2px; line-height: 1;
-    color: var(--bone);
-  }
-  .hero .stat .l { font-size: 13px; color: var(--slate); margin-top: 10px; letter-spacing: .3px; }
+  .hero .industries .label { color: var(--slate-light); margin-bottom: 18px; }
+  .hero .industries .list { display: flex; flex-wrap: wrap; gap: 32px 40px; color: var(--bone); font-size: 15px; letter-spacing: 0; text-transform: none; font-weight: 500; }
 
-  /* PROBLEM SECTION */
+  /* PROBLEM */
   .problem { padding: 90px 0; }
   .problem .grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 80px; align-items: center; }
   .problem .left .eb { font-size: 13px; color: var(--green); font-weight: 700; letter-spacing: 3px; text-transform: uppercase; }
@@ -157,7 +156,7 @@
   .solutions { padding: 110px 0; background: var(--paper); color: var(--ink); }
   .solutions .head { display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; margin-bottom: 56px; flex-wrap: wrap; }
   .solutions .head .eb { font-size: 13px; color: var(--green-deep); font-weight: 700; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 14px; }
-  .solutions .head h2 { font-size: clamp(40px, 5.5vw, 64px); line-height: 1.0; letter-spacing: -2px; font-weight: 800; max-width: 760px; }
+  .solutions .head h2 { font-size: clamp(40px, 5.5vw, 64px); line-height: 1.0; letter-spacing: -2px; font-weight: 800; max-width: 780px; }
   .solutions .head h2 em { color: var(--slate); font-style: normal; font-weight: 400; }
   .solutions .head p { color: var(--slate); font-size: 17px; max-width: 320px; line-height: 1.5; }
 
@@ -169,17 +168,17 @@
   .scard:hover { transform: translateY(-4px); box-shadow: 0 30px 60px rgba(10,10,11,.08); }
   .scard.dark { background: var(--ink); color: var(--bone); border-color: var(--ink); }
   .scard.featured { border: 2px solid var(--ink); position: relative; }
-  .scard.featured::after { content:"LEAD PRODUCT"; position: absolute; top: 24px; right: 24px; background: var(--green); color: var(--ink); padding: 6px 12px; border-radius: 6px; font-size: 11px; font-weight: 800; letter-spacing: 1.5px; }
+  .scard.featured::after { content:"FLAGSHIP"; position: absolute; top: 24px; right: 24px; background: var(--green); color: var(--ink); padding: 6px 12px; border-radius: 6px; font-size: 11px; font-weight: 800; letter-spacing: 1.5px; }
   .scard .num { font-size: 13px; color: var(--slate); font-weight: 700; letter-spacing: 2px; }
   .scard.dark .num { color: var(--green); }
   .scard.featured .num { color: var(--ink); font-weight: 800; }
   .scard h3 {
-    font-size: 36px; font-weight: 800; letter-spacing: -1.2px;
-    margin-top: 18px; line-height: 1.0; max-width: 480px;
+    font-size: 32px; font-weight: 800; letter-spacing: -1.2px;
+    margin-top: 18px; line-height: 1.05; max-width: 480px;
   }
   .scard p {
     color: var(--slate); margin-top: 18px; font-size: 16px;
-    line-height: 1.6; max-width: 520px;
+    line-height: 1.6; max-width: 540px;
   }
   .scard.dark p { color: rgba(255,255,255,.65); }
   .scard ul { margin-top: 26px; list-style: none; }
@@ -195,30 +194,29 @@
     -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='black' d='M6.5 12 2 7.5l1.4-1.4 3.1 3.1L12.6 3.5 14 5z'/%3E%3C/svg%3E") center/12px no-repeat;
     mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='black' d='M6.5 12 2 7.5l1.4-1.4 3.1 3.1L12.6 3.5 14 5z'/%3E%3C/svg%3E") center/12px no-repeat;
   }
-  .scard .meta { margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--line-soft); display: flex; justify-content: space-between; align-items: center; }
-  .scard.dark .meta { border-top-color: rgba(255,255,255,.08); }
-  .scard .meta .lbl { font-size: 12px; color: var(--slate); letter-spacing: 1.5px; font-weight: 700; }
-  .scard .meta .v { font-size: 18px; font-weight: 800; }
-  .scard.dark .meta .v { color: var(--green); }
 
-  .sgrid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 20px; }
-  .sgrid .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .sgrid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 20px; }
+  .sgrid.flip { grid-template-columns: 1.4fr 1fr; margin-top: 20px; }
 
-  /* PROCESS */
-  .process { padding: 110px 0; }
-  .process .head { display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; margin-bottom: 64px; flex-wrap: wrap; }
-  .process .head .eb { font-size: 13px; color: var(--green); font-weight: 700; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 14px; }
-  .process .head h2 { font-size: clamp(40px, 5.5vw, 64px); line-height: 1.0; letter-spacing: -2px; font-weight: 800; max-width: 700px; }
-  .process .head p { color: var(--slate-light); font-size: 17px; max-width: 360px; line-height: 1.5; }
-  .process .timeline { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-  .pstep { padding: 32px 28px; border-radius: 22px; border: 1px solid var(--line); background: var(--ink-2); position: relative; }
-  .pstep .n { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background: var(--green); color: var(--ink); font-weight: 800; font-size: 14px; }
-  .pstep .when { font-size: 12px; color: var(--green); margin-top: 16px; font-weight: 700; letter-spacing: 1.5px; }
-  .pstep h4 { font-size: 24px; font-weight: 700; margin-top: 6px; letter-spacing: -.5px; line-height: 1.05; }
-  .pstep p { color: var(--slate-light); margin-top: 14px; font-size: 14px; line-height: 1.55; }
+  /* AI VERTICALS */
+  .verticals { padding: 110px 0; background: var(--ink); }
+  .verticals .head { text-align: center; max-width: 780px; margin: 0 auto 64px; }
+  .verticals .head .eb { font-size: 13px; color: var(--green); font-weight: 700; letter-spacing: 3px; text-transform: uppercase; }
+  .verticals .head h2 { font-size: clamp(40px, 5.5vw, 64px); font-weight: 800; letter-spacing: -2px; line-height: 1; margin-top: 16px; }
+  .verticals .head h2 em { color: var(--slate-light); font-style: italic; font-weight: 400; }
+  .verticals .head p { color: var(--slate-light); font-size: 18px; margin-top: 24px; line-height: 1.6; }
+  .vgrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .vcard {
+    background: var(--ink-2); border: 1px solid var(--line); border-radius: 20px;
+    padding: 32px; transition: border-color .2s, transform .2s;
+  }
+  .vcard:hover { border-color: rgba(0,255,136,.4); transform: translateY(-2px); }
+  .vcard h4 { font-size: 22px; font-weight: 800; letter-spacing: -.5px; line-height: 1.1; }
+  .vcard h4 .ind { color: var(--green); font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; display: block; margin-bottom: 8px; }
+  .vcard p { color: var(--slate-light); font-size: 14px; line-height: 1.6; margin-top: 14px; }
 
   /* CASE STUDY */
-  .case { padding: 0 0 110px; }
+  .case { padding: 110px 0; }
   .case .card {
     background: var(--ink-2); border-radius: 32px; padding: 64px;
     border: 1px solid var(--line); display: grid;
@@ -228,65 +226,48 @@
   .case .card::before { content:""; position: absolute; right: -120px; top: -60px; width: 460px; height: 460px; background: radial-gradient(circle, rgba(0,255,136,.18) 0%, rgba(0,255,136,0) 60%); }
   .case .eb { font-size: 13px; color: var(--green); font-weight: 700; letter-spacing: 3px; text-transform: uppercase; }
   .case h2 { font-size: clamp(36px, 4.5vw, 52px); font-weight: 800; letter-spacing: -1.5px; line-height: 1.05; margin-top: 14px; }
-  .case .quote { font-size: 17px; color: var(--slate-light); margin-top: 26px; line-height: 1.65; max-width: 540px; }
-  .case .meta { margin-top: 36px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-  .case .meta .v { font-size: 32px; font-weight: 800; letter-spacing: -1px; color: var(--bone); }
-  .case .meta .l { font-size: 12px; color: var(--slate); margin-top: 4px; letter-spacing: .5px; }
-  .case .ctas { margin-top: 36px; display: flex; gap: 12px; }
+  .case .quote { font-size: 17px; color: var(--slate-light); margin-top: 26px; line-height: 1.65; max-width: 540px; position: relative; }
+  .case .quote b { color: var(--bone); font-weight: 600; }
+  .case .ctas { margin-top: 36px; display: flex; gap: 12px; position: relative; }
   .case .visual {
     background: var(--ink-3); border: 1px solid var(--line);
-    border-radius: 20px; padding: 36px; position: relative;
+    border-radius: 20px; padding: 32px; position: relative;
   }
   .case .visual .badge { display: inline-block; padding: 6px 12px; background: rgba(0,255,136,.12); color: var(--green); border-radius: 999px; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; }
-  .case .visual h3 { font-size: 26px; font-weight: 800; margin-top: 18px; line-height: 1.1; letter-spacing: -.8px; }
-  .case .visual .pills { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
-  .case .visual .pill { display: inline-block; padding: 4px 10px; background: rgba(255,255,255,.05); border-radius: 6px; font-size: 11px; color: var(--slate-light); }
-  .case .visual .lift { background: var(--ink); border: 1px solid var(--line); padding: 22px; border-radius: 14px; margin-top: 26px; }
-  .case .visual .lift .l { font-size: 11px; color: var(--slate); letter-spacing: 1.5px; font-weight: 700; }
-  .case .visual .lift .v { font-size: 44px; font-weight: 800; color: var(--green); margin-top: 6px; line-height: 1; letter-spacing: -1px; }
-  .case .visual .lift .b { font-size: 13px; color: var(--slate-light); margin-top: 8px; line-height: 1.5; }
+  .case .visual h3 { font-size: 22px; font-weight: 800; margin-top: 16px; line-height: 1.15; letter-spacing: -.5px; }
+  .case .visual .url { color: var(--slate-light); font-size: 13px; margin-top: 6px; }
+  .case .visual .compare { margin-top: 24px; }
+  .case .visual .compare .row { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 12px; padding: 12px 0; border-top: 1px solid rgba(255,255,255,.06); align-items: center; }
+  .case .visual .compare .row:first-child { border-top: 0; }
+  .case .visual .compare .row.h { color: var(--slate); font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 700; padding-bottom: 8px; }
+  .case .visual .compare .row .task { font-size: 13px; color: var(--bone); font-weight: 500; }
+  .case .visual .compare .row .before { font-size: 13px; color: var(--slate-light); }
+  .case .visual .compare .row .after { font-size: 13px; color: var(--green); font-weight: 700; }
+  .case .visual .live { margin-top: 22px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.06); display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--slate-light); letter-spacing: 1px; text-transform: uppercase; font-weight: 600; }
+  .case .visual .live::before { content:""; width: 7px; height: 7px; background: var(--green); border-radius: 50%; box-shadow: 0 0 0 3px rgba(0,255,136,.2); }
 
-  /* WHY (comparison) */
+  /* APPROACH */
+  .approach { padding: 110px 0; }
+  .approach .head { display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; margin-bottom: 64px; flex-wrap: wrap; }
+  .approach .head .eb { font-size: 13px; color: var(--green); font-weight: 700; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 14px; }
+  .approach .head h2 { font-size: clamp(40px, 5.5vw, 64px); line-height: 1.0; letter-spacing: -2px; font-weight: 800; max-width: 700px; }
+  .approach .head p { color: var(--slate-light); font-size: 17px; max-width: 360px; line-height: 1.5; }
+  .approach .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .pillar { padding: 36px 32px; border-radius: 22px; border: 1px solid var(--line); background: var(--ink-2); }
+  .pillar .n { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background: var(--green); color: var(--ink); font-weight: 800; font-size: 14px; }
+  .pillar h4 { font-size: 24px; font-weight: 800; margin-top: 20px; letter-spacing: -.5px; line-height: 1.1; }
+  .pillar p { color: var(--slate-light); margin-top: 14px; font-size: 14px; line-height: 1.6; }
+
+  /* WHY */
   .why { padding: 110px 0; background: var(--paper); color: var(--ink); }
-  .why .head { text-align: center; margin-bottom: 64px; }
+  .why .head { text-align: center; max-width: 820px; margin: 0 auto 56px; }
   .why .head .eb { font-size: 13px; color: var(--green-deep); font-weight: 700; letter-spacing: 3px; text-transform: uppercase; }
   .why .head h2 { font-size: clamp(40px, 5.5vw, 64px); font-weight: 800; letter-spacing: -2px; line-height: 1; margin-top: 16px; }
-  .why .table { background: var(--bone); border-radius: 24px; border: 1px solid var(--line-soft); overflow: hidden; max-width: 1080px; margin: 0 auto; }
-  .why .row { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; padding: 22px 32px; border-bottom: 1px solid var(--line-soft); align-items: center; gap: 16px; }
-  .why .row.h { background: var(--paper); font-size: 12px; color: var(--slate); font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; }
-  .why .row:last-child { border-bottom: 0; }
-  .why .row .label { font-weight: 600; }
-  .why .row .cell { font-size: 14px; color: var(--slate); display: flex; align-items: center; gap: 8px; }
-  .why .row .cell.yes { color: var(--ink); font-weight: 700; }
-  .why .row .cell.yes::before { content:""; width: 18px; height: 18px; background: var(--green); border-radius: 50%; flex: 0 0 auto; }
-  .why .row .cell.no::before { content:"×"; color: var(--slate-light); font-size: 22px; line-height: 1; font-weight: 600; }
-
-  /* PRICING */
-  .pricing { padding: 110px 0; }
-  .pricing .head { text-align: center; margin-bottom: 56px; }
-  .pricing .eb { font-size: 13px; color: var(--green); font-weight: 700; letter-spacing: 3px; text-transform: uppercase; }
-  .pricing h2 { font-size: clamp(40px, 5.5vw, 64px); font-weight: 800; letter-spacing: -2px; line-height: 1; margin-top: 14px; }
-  .pricing h2 em { font-style: italic; font-weight: 400; color: var(--slate-light); }
-  .pricing .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-  .price-card { background: var(--ink-2); border: 1px solid var(--line); border-radius: 24px; padding: 36px; }
-  .price-card.featured { background: var(--bone); color: var(--ink); border-color: var(--bone); position: relative; }
-  .price-card.featured::before { content:"MOST CHOSEN"; position: absolute; top: 22px; right: 22px; background: var(--green); color: var(--ink); font-size: 10px; padding: 5px 9px; border-radius: 6px; font-weight: 800; letter-spacing: 1.5px; }
-  .price-card .name { font-size: 13px; color: var(--green); font-weight: 800; letter-spacing: 2px; text-transform: uppercase; }
-  .price-card.featured .name { color: var(--ink); }
-  .price-card .amount { display: flex; align-items: baseline; gap: 8px; margin-top: 14px; }
-  .price-card .amount .from { font-size: 14px; color: var(--slate); }
-  .price-card .amount .num { font-size: 56px; font-weight: 800; letter-spacing: -2px; line-height: 1; }
-  .price-card .amount .per { font-size: 15px; color: var(--slate); font-weight: 600; }
-  .price-card.featured .amount .from, .price-card.featured .amount .per { color: var(--slate); }
-  .price-card .desc { color: var(--slate-light); margin-top: 16px; font-size: 14px; line-height: 1.55; min-height: 44px; }
-  .price-card.featured .desc { color: var(--slate); }
-  .price-card .btn { width: 100%; justify-content: center; margin-top: 28px; }
-  .price-card ul { list-style: none; margin-top: 28px; }
-  .price-card li { padding: 9px 0; font-size: 14px; border-top: 1px solid var(--line); display: flex; gap: 10px; color: var(--slate-light); }
-  .price-card.featured li { border-top-color: var(--line-soft); color: var(--char); }
-  .price-card li:first-child { border-top: 0; }
-  .price-card li::before { content:"+"; color: var(--green); font-weight: 700; flex: 0 0 auto; width: 16px; }
-  .price-card.featured li::before { color: var(--ink); }
+  .why .stack { max-width: 820px; margin: 0 auto; display: grid; gap: 16px; }
+  .why .stack .line { font-size: clamp(20px, 2.5vw, 28px); color: var(--slate); padding: 16px 0; border-bottom: 1px solid var(--line-soft); font-weight: 500; }
+  .why .stack .line.last { color: var(--ink); font-weight: 800; border-bottom: 0; }
+  .why .closing { text-align: center; max-width: 680px; margin: 56px auto 0; color: var(--slate); font-size: 18px; line-height: 1.6; }
+  .why .closing b { color: var(--ink); font-weight: 700; }
 
   /* FAQ */
   .faq { padding: 110px 0; }
@@ -305,7 +286,7 @@
   .cta::before { content:""; position: absolute; left: 50%; top: 50%; width: 800px; height: 800px; background: radial-gradient(circle, rgba(0,255,136,.16) 0%, rgba(0,255,136,0) 55%); transform: translate(-50%,-50%); }
   .cta h2 { font-size: clamp(48px, 7vw, 96px); font-weight: 800; letter-spacing: -3px; line-height: 1.0; max-width: 920px; margin: 0 auto; position: relative; }
   .cta h2 .accent { background: var(--green); color: var(--ink); padding: 0 16px; border-radius: 14px; display: inline-block; transform: rotate(-1deg); }
-  .cta p { color: var(--slate-light); font-size: 19px; margin-top: 28px; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.55; position: relative; }
+  .cta p { color: var(--slate-light); font-size: 19px; margin-top: 28px; max-width: 640px; margin-left: auto; margin-right: auto; line-height: 1.55; position: relative; }
   .cta .ctas { margin-top: 44px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; position: relative; }
 
   /* FOOTER */
@@ -383,25 +364,23 @@
     .hero { padding: 48px 0 80px; }
     .hero h1 { letter-spacing: -1.5px; }
     .hero .lede { font-size: 17px; margin-top: 26px; }
-    .hero .stats { grid-template-columns: repeat(2, 1fr); margin-top: 64px; gap: 32px 16px; }
+    .hero .industries .list { gap: 16px 24px; font-size: 14px; }
     .problem .grid { grid-template-columns: 1fr; gap: 32px; }
     .problem { padding: 64px 0; }
     .solutions { padding: 72px 0; }
-    .sgrid { grid-template-columns: 1fr; }
-    .sgrid .row2 { grid-template-columns: 1fr; }
+    .sgrid, .sgrid.flip { grid-template-columns: 1fr; }
     .scard { padding: 32px 28px; }
-    .scard h3 { font-size: 28px; }
-    .process { padding: 72px 0; }
-    .process .timeline { grid-template-columns: 1fr; }
+    .scard h3 { font-size: 26px; }
+    .verticals { padding: 72px 0; }
+    .vgrid { grid-template-columns: 1fr; }
+    .vcard { padding: 26px 24px; }
+    .case { padding: 72px 0; }
     .case .card { grid-template-columns: 1fr; padding: 40px 28px; gap: 36px; border-radius: 24px; }
     .case h2 { font-size: 32px; }
-    .case .visual { padding: 28px; }
+    .case .visual { padding: 24px; }
+    .approach { padding: 72px 0; }
+    .approach .pillars { grid-template-columns: 1fr; }
     .why { padding: 72px 0; }
-    .why .row { grid-template-columns: 1fr; gap: 4px; padding: 18px 22px; }
-    .why .row.h { display: none; }
-    .why .row .label { font-size: 16px; margin-bottom: 8px; }
-    .why .row .cell::after { content: attr(data-h); margin-left: 10px; color: var(--slate); font-size: 11px; letter-spacing: 1px; text-transform: uppercase; font-weight: 600; }
-    .pricing .grid { grid-template-columns: 1fr; }
     .faq .layout { grid-template-columns: 1fr; gap: 36px; }
     .cta-section { padding: 72px 0; }
     .cta { padding: 72px 28px; border-radius: 24px; }
@@ -427,15 +406,15 @@
         <span>Kleper<span class="dot-suffix">.studio</span></span>
       </a>
       <div class="links">
-        <a href="#solutions">Solutions</a>
-        <a href="#process">Process</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#faq">FAQ</a>
+        <a href="#solutions">What we build</a>
+        <a href="#verticals">Industries</a>
+        <a href="#work">Work</a>
+        <a href="#approach">Approach</a>
         <a href="#contact">Contact</a>
       </div>
       <div class="nav-actions">
         <a href="#contact" class="btn btn-ghost">Sign in</a>
-        <a href="#contact" class="btn btn-green">Book a call <span class="arrow">→</span></a>
+        <a href="#contact" class="btn btn-green">Start a project <span class="arrow">→</span></a>
       </div>
     </div>
   </div>
@@ -467,24 +446,30 @@
       <circle cx="1140" cy="640" r="2" opacity=".55"/>
       <circle cx="1340" cy="720" r="1" opacity=".4"/>
     </g>
-    <!-- soft orbital ring -->
     <ellipse cx="1180" cy="280" rx="320" ry="80" fill="none" stroke="rgba(0,255,136,.15)" stroke-width="1" transform="rotate(-15 1180 280)"/>
     <ellipse cx="1180" cy="280" rx="220" ry="55" fill="none" stroke="rgba(0,255,136,.1)" stroke-width="1" transform="rotate(-15 1180 280)"/>
   </svg>
 
   <div class="wrap">
-    <span class="eyebrow"><span class="pulse"></span>Lead-capture engineering · CRM · Automations · AI Agents</span>
-    <h1>Websites that capture <span class="accent">real leads</span>.<br><em>Then everything you need to close them.</em></h1>
-    <p class="lede">Most websites are brochures. Yours should be a <b>sales engine</b> — built to capture intent, qualify it automatically, and route it into a CRM that converts. Kleper designs the front door and the engine room.</p>
+    <span class="eyebrow"><span class="pulse"></span>Websites · Custom Platforms · AI · Integrations</span>
+    <h1>AI-native software for <span class="accent">ambitious</span> businesses.<br><em>Built as one operating system.</em></h1>
+    <p class="lede">Most companies adapt to their tools. The teams Kleper works with build their own. We design and engineer custom digital systems — websites, platforms, and AI — shaped around how <b>your business actually operates</b>.</p>
     <div class="ctas">
-      <a class="btn btn-green" href="#contact">Book a 30-min strategy call <span class="arrow">→</span></a>
-      <a class="btn btn-ghost" href="#solutions">See the solutions</a>
+      <a class="btn btn-green" href="#contact">Start a project <span class="arrow">→</span></a>
+      <a class="btn btn-ghost" href="#solutions">See what we build</a>
     </div>
-    <div class="stats">
-      <div class="stat"><div class="v">2.4×</div><div class="l">Avg. lead conversion lift</div></div>
-      <div class="stat"><div class="v">−60%</div><div class="l">Reduction in manual follow-up</div></div>
-      <div class="stat"><div class="v">6 wks</div><div class="l">From kickoff to live</div></div>
-      <div class="stat"><div class="v">£180</div><div class="l">Starting monthly retainer</div></div>
+    <div class="industries">
+      <div class="label">Working with founders and operators across</div>
+      <div class="list">
+        <span>Finance</span>
+        <span>Real Estate</span>
+        <span>Life Sciences</span>
+        <span>E-commerce</span>
+        <span>Hospitality</span>
+        <span>Legal</span>
+        <span>Healthcare</span>
+        <span>Consumer Brands</span>
+      </div>
     </div>
   </div>
 </header>
@@ -494,13 +479,13 @@
   <div class="wrap">
     <div class="grid">
       <div class="left">
-        <div class="eb">The problem</div>
-        <h2>Your website is a brochure. It should be a sales engine.</h2>
+        <div class="eb">The thesis</div>
+        <h2>The companies that will define the next decade build their own software.</h2>
       </div>
       <div class="right">
-        <p>You're paying for traffic — Google Ads, Meta, SEO, referrals — and most of it lands on a page that asks visitors to scroll, read, find a phone number, and call you back during office hours. <b>That's a leaky funnel by design.</b></p>
-        <p>The leads that do come through end up in three different inboxes, a notebook, and someone's WhatsApp. By the time you follow up, they've booked with the competitor next door.</p>
-        <p>Kleper rebuilds the front door (a website that actually captures leads) and the engine behind it (CRM, automations, AI agents) so nothing falls through the gaps.</p>
+        <p>Off-the-shelf tools are levellers. They give every business in your category access to the same workflows, the same dashboards, the same constraints. They make you <b>average by design</b>.</p>
+        <p>The teams pulling ahead — in finance, real estate, life sciences, e-commerce, legal, healthcare — are doing the opposite. They're building software shaped around how they actually operate. Custom platforms. Custom AI. Integrated, not bolted-on.</p>
+        <p>Kleper is the studio they bring in to build it.</p>
       </div>
     </div>
   </div>
@@ -511,105 +496,195 @@
   <div class="wrap">
     <div class="head">
       <div>
-        <div class="eb">Solutions</div>
-        <h2>Four moving parts. <em>One sales engine.</em></h2>
+        <div class="eb">What we build</div>
+        <h2>Four disciplines. <em>Delivered as one practice.</em></h2>
       </div>
-      <p>Start with the website. Layer in the rest as you grow. Everything talks to itself by default.</p>
+      <p>Brand, software, AI, and integrations — designed and engineered together. The result is software that feels coherent, not assembled.</p>
     </div>
+
     <div class="sgrid">
-
-      <!-- Hero solution: Lead-capture websites -->
-      <div class="scard featured">
-        <div class="num">01 — WEBSITES THAT CAPTURE</div>
-        <h3>Lead-capture websites built on physics, not vibes.</h3>
-        <p>Every page designed for one job: turn a stranger into a qualified lead. No vanity hero videos, no menu archeology, no contact-form-shaped black holes. Built to load fast, convert, and feed your CRM.</p>
+      <div class="scard dark">
+        <div class="num">01 — BRAND &amp; SITE</div>
+        <h3>Editorial-grade websites that look the part.</h3>
+        <p>The website is still where serious decisions get made. Investors, partners, and customers form an opinion in seconds — and that opinion sets the price you can charge for the rest of your life as a business.</p>
         <ul>
-          <li>Conversion-optimised pages — measured, A/B tested, iterated</li>
-          <li>Smart forms with conditional fields and progressive profiling</li>
-          <li>Booking, payments, gated content native to the site</li>
-          <li>Heatmaps, session recordings &amp; funnel analytics built in</li>
-          <li>Forms post directly into your CRM — no Zapier glue</li>
+          <li>Marketing sites, product launches, multilingual sites</li>
+          <li>E-commerce storefronts and investor pages</li>
+          <li>Engineered for SEO, conversion, accessibility, speed</li>
+          <li>Built in design systems, not templates</li>
         </ul>
-        <div class="meta">
-          <div><div class="lbl">DELIVERY</div><div class="v" style="color:var(--ink)">4–6 weeks</div></div>
-          <div><div class="lbl">FROM</div><div class="v" style="color:var(--ink)">£2,400</div></div>
-        </div>
       </div>
 
-      <div class="scard dark">
-        <div class="num">02 — CRM</div>
-        <h3>The engine room: a CRM your team will actually open.</h3>
-        <p>Captured leads land in a CRM tuned for service businesses — pipeline stages, lead scoring, follow-up cadences, native messaging. Lightweight where it should be, deep where it matters.</p>
+      <div class="scard featured">
+        <div class="num">02 — CUSTOM PLATFORMS</div>
+        <h3>Software shaped around how you actually run.</h3>
+        <p>Most businesses outgrow their software before they realise it. The CRM that worked at ten clients breaks at a hundred. The spreadsheet that ran the operation becomes the bottleneck. We build the alternative — platforms designed around your operation, owned by you, scaling with the business.</p>
         <ul>
-          <li>Custom pipelines per service or location</li>
-          <li>Email + WhatsApp + SMS in one thread</li>
-          <li>Lead scoring by source, behaviour and intent</li>
-          <li>Imports from Pipedrive, HubSpot, Salesforce</li>
+          <li>CRMs, admin systems, customer portals</li>
+          <li>Wholesale and partner platforms with credit and invoicing</li>
+          <li>Marketplaces, booking, scheduling, inventory</li>
+          <li>Compliance, audit, and regulated workflows</li>
+          <li>Internal tools that replace the spreadsheets</li>
         </ul>
       </div>
     </div>
 
-    <div class="sgrid row2" style="margin-top: 20px;">
-      <div class="scard">
-        <div class="num">03 — AUTOMATIONS</div>
-        <h3>Automations that work the night shift.</h3>
-        <p>Triggers, conditions, branching logic — every repetitive task off your team's plate. Reminders, follow-ups, lead routing, post-purchase sequences, churn rescue. Set once, ship value forever.</p>
+    <div class="sgrid flip">
+      <div class="scard featured">
+        <div class="num">03 — CUSTOM AI</div>
+        <h3>AI built for your business, not bolted onto your homepage.</h3>
+        <p>Generic AI is the starting line. Custom AI is the finish. We build AI systems trained on your data, fitted to your workflow, written in your tone of voice — embedded directly into the platforms your team uses every day. Co-pilots that read documents. Agents that triage work. Decision systems that draft recommendations. Industry by industry, the use cases are different. The pattern is the same: hours of work, compressed into seconds.</p>
         <ul>
-          <li>500+ pre-built integrations (Stripe, Calendly, Slack, etc.)</li>
-          <li>Multi-step branching flows with error handling</li>
-          <li>Scheduled, webhook-driven, or event-driven</li>
-          <li>Audit logs and one-click rollback per run</li>
+          <li>Co-pilots, agents, decision and underwriting systems</li>
+          <li>Document review, drafting, and parsing</li>
+          <li>Forecasting, matching, and recommendation engines</li>
+          <li>Customer support agents that know your products</li>
+          <li>Trained on your data, integrated with your stack</li>
         </ul>
       </div>
+
       <div class="scard dark">
-        <div class="num">04 — AI AGENTS</div>
-        <h3>Agents that pick up the phone at 3am.</h3>
-        <p>Trained on your business — products, prices, policies — and let loose to qualify leads, answer FAQs, book meetings, and follow up. Hands off to a human the second it matters.</p>
+        <div class="num">04 — INTEGRATIONS</div>
+        <h3>One operating layer. No more re-typed data.</h3>
+        <p>Modern businesses run on a stack of tools. Most of them don't talk to each other. We connect everything you use — payments, accounting, CRM, comms, scheduling, support, analytics — into one coherent layer.</p>
         <ul>
-          <li>Voice and chat, deployed in under a week</li>
-          <li>Pulls from your CRM, calendar &amp; inventory live</li>
-          <li>Human handoff with full conversation context</li>
-          <li>Priced per resolved lead, not per token</li>
+          <li>Real-time data flow between systems</li>
+          <li>Workflows that trigger automatically</li>
+          <li>Custom APIs where none exist</li>
+          <li>If a system has an API, we can connect it</li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PROCESS -->
-<section id="process" class="process">
+<!-- INDUSTRY VERTICALS — what custom AI looks like -->
+<section id="verticals" class="verticals">
+  <div class="wrap">
+    <div class="head">
+      <div class="eb">Custom AI in your industry</div>
+      <h2>Every industry has its own version <em>of the same problem.</em></h2>
+      <p>Too much information, too few hours, decisions made on instinct because there isn't time for analysis. Here's what custom AI looks like, by industry.</p>
+    </div>
+    <div class="vgrid">
+      <div class="vcard">
+        <h4><span class="ind">Finance &amp; investment</span>Underwriting and decision systems trained on your historical performance.</h4>
+        <p>Deal analysis, credit decisioning, document review for due diligence, portfolio monitoring, compliance and AML checks, pitch and memo generation.</p>
+      </div>
+      <div class="vcard">
+        <h4><span class="ind">Real estate &amp; property</span>Modelling, comps, and memos in minutes instead of days.</h4>
+        <p>Deal underwriting, market comparable research, investment memorandum drafting, property listing analysis, tenant screening, maintenance dispatch.</p>
+      </div>
+      <div class="vcard">
+        <h4><span class="ind">Healthcare &amp; life sciences</span>AI that handles the documentation, so clinicians don't have to.</h4>
+        <p>Clinical document parsing, patient triage and intake, research literature review, regulatory submission drafting, inventory forecasting, adverse event monitoring.</p>
+      </div>
+      <div class="vcard">
+        <h4><span class="ind">E-commerce &amp; consumer</span>Personalised at scale, supported by AI that knows your product line.</h4>
+        <p>Product recommendation engines, customer support agents, inventory forecasting, personalised content and email, returns triage, partner matching.</p>
+      </div>
+      <div class="vcard">
+        <h4><span class="ind">Legal &amp; professional services</span>Hours of document work, completed in seconds.</h4>
+        <p>Contract review and redlining, discovery and document review, legal research, client intake and matter routing, brief drafting, compliance monitoring.</p>
+      </div>
+      <div class="vcard">
+        <h4><span class="ind">Hospitality &amp; service</span>Guest experience at the level of a five-star concierge, at scale.</h4>
+        <p>Booking and yield management, guest support agents, review monitoring and response, operational forecasting, personalised guest experiences.</p>
+      </div>
+      <div class="vcard">
+        <h4><span class="ind">Manufacturing &amp; logistics</span>Forecasting, quality, and uptime — predicted, not reacted to.</h4>
+        <p>Demand forecasting, quality control vision systems, predictive maintenance, supply-chain disruption monitoring, RFQ and quote generation.</p>
+      </div>
+      <div class="vcard">
+        <h4><span class="ind">Sales &amp; marketing operations</span>The grunt work removed, so the team focuses on the close.</h4>
+        <p>Lead qualification and routing, personalised outbound sequences, content generation at scale, CRM data hygiene, account research and prospect briefings.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDY — VALORA -->
+<section id="work" class="case">
+  <div class="wrap">
+    <div class="card">
+      <div>
+        <div class="eb">Selected work</div>
+        <h2>Valora — The Underwriting Room for Real Estate.</h2>
+        <p class="quote">Property investors and analysts spend their lives in spreadsheets. Building one model for a single deal can take a junior analyst an entire afternoon — and that's before the investment memo, the market research, and the sensitivity analysis on top. <b>Valora replaces all of it.</b></p>
+        <p class="quote">A property professional opens the platform, enters the basics of the deal, and gets back a fully modelled appraisal, market comparables, an investor-ready brochure, and a shareable live link to send to co-investors — all in under fifteen minutes.</p>
+        <p class="quote"><b>What used to take a team a week, one person now does before lunch.</b></p>
+        <div class="ctas">
+          <a class="btn btn-green" href="https://valoraplatform.io" target="_blank" rel="noopener">Visit Valora <span class="arrow">→</span></a>
+          <a class="btn btn-ghost" href="#contact">Build something like this</a>
+        </div>
+      </div>
+      <div class="visual">
+        <span class="badge">CASE STUDY</span>
+        <h3>Valora</h3>
+        <div class="url">valoraplatform.io</div>
+        <div class="compare">
+          <div class="row h">
+            <div>Task</div>
+            <div>Before</div>
+            <div>With Valora</div>
+          </div>
+          <div class="row">
+            <div class="task">Build the model</div>
+            <div class="before">Half a day</div>
+            <div class="after">8 minutes</div>
+          </div>
+          <div class="row">
+            <div class="task">Investment memo</div>
+            <div class="before">A full day</div>
+            <div class="after">5 minutes</div>
+          </div>
+          <div class="row">
+            <div class="task">Market comps</div>
+            <div class="before">Most of an afternoon</div>
+            <div class="after">30 seconds</div>
+          </div>
+          <div class="row">
+            <div class="task">Stress-test the deal</div>
+            <div class="before">30 mins of formulas</div>
+            <div class="after">Instant</div>
+          </div>
+          <div class="row">
+            <div class="task">Sense-check</div>
+            <div class="before">Senior analyst review</div>
+            <div class="after">Instant</div>
+          </div>
+        </div>
+        <div class="live">Live and in use today</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section id="approach" class="approach">
   <div class="wrap">
     <div class="head">
       <div>
         <div class="eb">How we work</div>
-        <h2>Four phases.<br>One fixed price.</h2>
+        <h2>The way the best in-house teams work.</h2>
       </div>
-      <p>No retainers that drift, no scope creep, no surprise invoices. The full plan and the full price land on day one.</p>
+      <p>Strategy, design, and engineering aren't separate phases at Kleper — they're one continuous conversation.</p>
     </div>
-    <div class="timeline">
-      <div class="pstep">
+    <div class="pillars">
+      <div class="pillar">
         <div class="n">1</div>
-        <div class="when">WEEK 0</div>
-        <h4>Strategy call</h4>
-        <p>30 minutes. We map your funnel, find the leak, and write you a free 1-page audit. You decide whether to continue.</p>
+        <h4>Strategy first</h4>
+        <p>We start by understanding the business, not the brief. The deliverable is whatever the business actually needs — sometimes that's a website, sometimes it's a platform that replaces six tools, sometimes it's an AI that does the work of three roles.</p>
       </div>
-      <div class="pstep">
+      <div class="pillar">
         <div class="n">2</div>
-        <div class="when">WEEKS 1–2</div>
-        <h4>Design &amp; spec</h4>
-        <p>Wireframes, copy, design system. You see a clickable prototype before a single line of code is written.</p>
+        <h4>Design and engineering as one team</h4>
+        <p>Most agencies hand off between designers and developers. We don't. The person designing the system understands how it will be built. The result is software that feels coherent, not assembled.</p>
       </div>
-      <div class="pstep">
+      <div class="pillar">
         <div class="n">3</div>
-        <div class="when">WEEKS 3–6</div>
-        <h4>Build &amp; integrate</h4>
-        <p>Live staging on day 14. CRM hooked up, automations live, agents trained. We test on real traffic before launch.</p>
-      </div>
-      <div class="pstep">
-        <div class="n">4</div>
-        <div class="when">ONGOING</div>
-        <h4>Run &amp; optimise</h4>
-        <p>Hosting, monitoring, content updates, monthly conversion reports, quarterly rebuild of weakest pages. Cancel anytime.</p>
+        <h4>Built to be owned</h4>
+        <p>Code lives with you. Documentation comes with it. Credentials, data, repos, infrastructure — all yours from day one. We're partners, not gatekeepers.</p>
       </div>
     </div>
   </div>
@@ -620,98 +695,15 @@
   <div class="wrap">
     <div class="head">
       <div class="eb">Why Kleper</div>
-      <h2>One bill. One platform. One team.</h2>
+      <h2>Three things, integrated by default.</h2>
     </div>
-    <div class="table">
-      <div class="row h">
-        <div class="label">&nbsp;</div>
-        <div class="cell">Hire in-house</div>
-        <div class="cell">Stitch SaaS tools</div>
-        <div class="cell">Use Kleper</div>
-      </div>
-      <div class="row">
-        <div class="label">Time to first launch</div>
-        <div class="cell" data-h="In-house">3–6 months</div>
-        <div class="cell" data-h="SaaS">2–4 weeks</div>
-        <div class="cell yes" data-h="Kleper">6 weeks, fixed</div>
-      </div>
-      <div class="row">
-        <div class="label">Yearly cost (typical)</div>
-        <div class="cell" data-h="In-house">£80–150k</div>
-        <div class="cell" data-h="SaaS">£8–20k + setup</div>
-        <div class="cell yes" data-h="Kleper">£2.4k+£2.2k/yr</div>
-      </div>
-      <div class="row">
-        <div class="label">Built around lead capture</div>
-        <div class="cell" data-h="In-house">If you're lucky</div>
-        <div class="cell no" data-h="SaaS">No</div>
-        <div class="cell yes" data-h="Kleper">By default</div>
-      </div>
-      <div class="row">
-        <div class="label">You own the code &amp; data</div>
-        <div class="cell yes" data-h="In-house">Yes</div>
-        <div class="cell no" data-h="SaaS">No</div>
-        <div class="cell yes" data-h="Kleper">Yes</div>
-      </div>
-      <div class="row">
-        <div class="label">Cancel any month</div>
-        <div class="cell no" data-h="In-house">Hiring drama</div>
-        <div class="cell" data-h="SaaS">Annual lock-ins</div>
-        <div class="cell yes" data-h="Kleper">30-day notice</div>
-      </div>
+    <div class="stack">
+      <div class="line">Most studios stop at the website.</div>
+      <div class="line">Most dev shops can't design.</div>
+      <div class="line">Most AI consultants don't ship.</div>
+      <div class="line last">Kleper does all three. As one team. On one project.</div>
     </div>
-  </div>
-</section>
-
-<!-- PRICING -->
-<section id="pricing" class="pricing">
-  <div class="wrap">
-    <div class="head">
-      <div class="eb">Pricing</div>
-      <h2>Honest numbers, <em>no surprises.</em></h2>
-    </div>
-    <div class="grid">
-      <div class="price-card">
-        <div class="name">Launch</div>
-        <div class="amount"><span class="from">from</span><span class="num">£2.4k</span></div>
-        <div class="desc">Lead-capture website + booking. Perfect for a single-location service business.</div>
-        <ul>
-          <li>Up to 8 pages, custom design</li>
-          <li>Booking flow + Stripe payments</li>
-          <li>Forms wired to your CRM</li>
-          <li>SEO &amp; analytics setup</li>
-          <li>Live in 4 weeks</li>
-        </ul>
-        <a href="#contact" class="btn btn-ghost">Book a call</a>
-      </div>
-      <div class="price-card featured">
-        <div class="name">Operate</div>
-        <div class="amount"><span class="from">from</span><span class="num">£4.8k</span></div>
-        <div class="desc">Website + CRM + automations. The growth-engine package — where most operators land.</div>
-        <ul>
-          <li>Everything in Launch</li>
-          <li>CRM with custom pipelines</li>
-          <li>10+ automations live at launch</li>
-          <li>Reporting &amp; conversion dashboards</li>
-          <li>Live in 6 weeks</li>
-        </ul>
-        <a href="#contact" class="btn btn-green">Book a call</a>
-      </div>
-      <div class="price-card">
-        <div class="name">Scale</div>
-        <div class="amount"><span class="from">from</span><span class="num">£8k</span></div>
-        <div class="desc">Operate + AI agents. Hand the FAQs and follow-ups to software.</div>
-        <ul>
-          <li>Everything in Operate</li>
-          <li>Voice + chat AI agents</li>
-          <li>Trained on your business</li>
-          <li>Human handoff &amp; monitoring</li>
-          <li>Live in 8 weeks</li>
-        </ul>
-        <a href="#contact" class="btn btn-ghost">Book a call</a>
-      </div>
-    </div>
-    <p style="text-align:center; color:var(--slate-light); margin-top:32px; font-size:14px;">Plus monthly from £180. Stripe fees pass-through. No setup fees, no annual lock-in.</p>
+    <p class="closing">When everything is built together, everything works together. The website talks to the platform. The platform informs the AI. The AI surfaces what your team needs to see. <b>Every system you already use — connected, not bolted on.</b></p>
   </div>
 </section>
 
@@ -724,12 +716,12 @@
         <p class="lede">Don't see yours? <a href="mailto:hello@kleper.studio">Email hello@kleper.studio</a> and we'll reply within a working day.</p>
       </div>
       <div>
-        <div class="item"><div class="q">How long does a typical build take?</div><div class="a">Six weeks for the Operate package, four for Launch, eight for Scale. We commit to the date in the proposal — and we hit it.</div></div>
-        <div class="item"><div class="q">What does "captures real leads" actually mean?</div><div class="a">Forms designed around buyer intent, progressive profiling so visitors aren't asked for ten fields up-front, and analytics that show you which pages are bringing in real money — not just traffic. Every lead that comes through is qualified before it hits a sales rep.</div></div>
-        <div class="item"><div class="q">Do I own the website and the data?</div><div class="a">Yes — both. The code lives in a Git repo we hand over to you. The data lives in a database you can export at any time. If you ever leave Kleper, you walk out with everything.</div></div>
-        <div class="item"><div class="q">What if I want to leave?</div><div class="a">Give us 30 days notice. We export every asset, hand over credentials, document the stack, and stay reachable for 60 days while your new team gets settled.</div></div>
-        <div class="item"><div class="q">Can you integrate with what we already have?</div><div class="a">Almost certainly. We work with Stripe, Calendly, HubSpot, Pipedrive, Mailchimp, Klaviyo, ActiveCampaign, Twilio, and most CMSs. If it has an API, we can plug into it.</div></div>
-        <div class="item"><div class="q">Why not just hire someone in-house?</div><div class="a">Because one person can't be a designer, a CRM admin, an automations engineer and an AI specialist. Kleper gives you that team — and the systems they've already built — for less than the cost of one in-house hire.</div></div>
+        <div class="item"><div class="q">What kind of projects do you take on?</div><div class="a">Custom websites, platforms, and AI systems for businesses that have outgrown off-the-shelf tools. We work across finance, real estate, life sciences, e-commerce, legal, healthcare, hospitality and consumer brands. The industry varies. The standard doesn't.</div></div>
+        <div class="item"><div class="q">How much does an engagement cost?</div><div class="a">It depends entirely on scope. A focused website project starts in the low thousands. A custom platform with AI integration runs into five figures and beyond. Every engagement gets a fixed-price proposal after a discovery conversation — no surprise invoices, no scope creep.</div></div>
+        <div class="item"><div class="q">How long does a build take?</div><div class="a">Most engagements run six to twelve weeks. Larger platforms run longer. We commit to dates in the proposal and we hit them — Valora was built end-to-end in six weeks.</div></div>
+        <div class="item"><div class="q">Do I own the code, the data, and the AI models?</div><div class="a">Yes — all three. Code lives in a Git repo we hand over to you. Data lives in databases you control. AI prompts, fine-tunes, and configurations are documented and yours from day one. If you ever leave Kleper, you walk out with everything.</div></div>
+        <div class="item"><div class="q">Can you integrate with what we already have?</div><div class="a">Almost certainly. Payments, accounting, CRM, marketing, support, scheduling, custom APIs, legacy databases — if it has an API, we can connect it. If it doesn't, we'll build one.</div></div>
+        <div class="item"><div class="q">Why not just hire someone in-house?</div><div class="a">Because one person can't be a strategist, a designer, a frontend engineer, a backend engineer, and an AI specialist. Kleper gives you that team — and the systems we've already built — for less than the cost of one senior in-house hire.</div></div>
       </div>
     </div>
   </div>
@@ -739,8 +731,8 @@
 <section id="contact" class="cta-section">
   <div class="wrap">
     <div class="cta">
-      <h2>Stop running a brochure.<br>Start running a <span class="accent">sales engine</span>.</h2>
-      <p>Book a 30-minute strategy call. We'll audit your current site, find the leak, and write you a one-page plan — free, whether or not you hire us.</p>
+      <h2>Build software that's <span class="accent">yours</span>.</h2>
+      <p>Tell us what you're building, what's in your way, and what success looks like. Every engagement starts with a conversation — no commitment, no pitch deck, no pressure.</p>
 
       <form class="lead-form" id="leadForm" novalidate>
         <p class="hp"><label>Don't fill this: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
@@ -761,32 +753,37 @@
             <input id="lf-business" name="business" type="text" required placeholder="Your business name">
           </div>
           <div class="field">
-            <label for="lf-budget">Monthly budget</label>
-            <select id="lf-budget" name="budget" required>
-              <option value="">Pick a range</option>
-              <option>£200 – £500 / mo</option>
-              <option>£500 – £1,500 / mo</option>
-              <option>£1,500 – £5,000 / mo</option>
-              <option>£5,000+ / mo</option>
-              <option>Not sure yet</option>
+            <label for="lf-industry">Industry</label>
+            <select id="lf-industry" name="industry" required>
+              <option value="">Pick one</option>
+              <option>Finance &amp; Investment</option>
+              <option>Real Estate &amp; Property</option>
+              <option>Life Sciences &amp; Healthcare</option>
+              <option>E-commerce &amp; Consumer</option>
+              <option>Legal &amp; Professional Services</option>
+              <option>Hospitality &amp; Service</option>
+              <option>Manufacturing &amp; Logistics</option>
+              <option>SaaS &amp; Tech</option>
+              <option>Other</option>
             </select>
           </div>
         </div>
         <div class="field full">
-          <label for="lf-need">What do you need help with?</label>
-          <textarea id="lf-need" name="need" rows="4" required placeholder="A new website, a CRM that doesn't suck, automations to handle leads at 2am, an AI agent that books calls — or all four."></textarea>
+          <label for="lf-need">What are you building?</label>
+          <textarea id="lf-need" name="need" rows="4" required placeholder="A new website, a custom platform that replaces a stack of tools, an AI system that does the work of three roles — or all of the above. The more specific, the better."></textarea>
         </div>
         <div class="field full">
-          <label for="lf-products">Which solutions are you interested in? <span class="hint">(pick all that fit)</span></label>
+          <label for="lf-products">Which capabilities are you interested in? <span class="hint">(pick all that fit)</span></label>
           <div class="checks">
-            <label class="check"><input type="checkbox" name="products" value="Lead-capture website"><span>Lead-capture website</span></label>
-            <label class="check"><input type="checkbox" name="products" value="CRM"><span>CRM</span></label>
-            <label class="check"><input type="checkbox" name="products" value="Automations"><span>Automations</span></label>
-            <label class="check"><input type="checkbox" name="products" value="AI agents"><span>AI agents</span></label>
+            <label class="check"><input type="checkbox" name="products" value="Website"><span>Website</span></label>
+            <label class="check"><input type="checkbox" name="products" value="Custom platform"><span>Custom platform</span></label>
+            <label class="check"><input type="checkbox" name="products" value="Custom AI"><span>Custom AI</span></label>
+            <label class="check"><input type="checkbox" name="products" value="Integrations"><span>Integrations</span></label>
+            <label class="check"><input type="checkbox" name="products" value="Not sure yet"><span>Not sure yet</span></label>
           </div>
         </div>
         <div class="actions">
-          <button type="submit" class="btn btn-green">Send &amp; book my call <span class="arrow">→</span></button>
+          <button type="submit" class="btn btn-green">Start the conversation <span class="arrow">→</span></button>
           <span class="alt">or email <a href="mailto:hello@kleper.studio">hello@kleper.studio</a></span>
         </div>
         <p class="legal">By submitting you agree to be contacted about your enquiry. We never share your email.</p>
@@ -795,7 +792,7 @@
       <div class="form-success" id="formSuccess">
         <div class="tick">✓</div>
         <h3>Thanks — we'll be in touch within a working day.</h3>
-        <p>You'll get a reply from <b>hello@kleper.studio</b> with a calendar link and a couple of pre-call questions. While you wait, you can <a href="#solutions">browse the solutions</a> or read the <a href="#faq">FAQ</a>.</p>
+        <p>You'll get a reply from <b>hello@kleper.studio</b> with a calendar link and a couple of pre-call questions. While you wait, you can <a href="#solutions">browse what we build</a> or read the <a href="#faq">FAQ</a>.</p>
       </div>
     </div>
   </div>
@@ -810,30 +807,30 @@
           <span class="mark"><span class="ring"></span><span class="planet"></span></span>
           <span>Kleper<span class="dot-suffix">.studio</span></span>
         </a>
-        <p class="tag">Lead-capture engineering for ambitious operators. Websites, CRM, automations and AI agents — built and run as one platform.</p>
+        <p class="tag">AI-native software for ambitious businesses. Websites, custom platforms, AI, and integrations — built and owned as one operating system.</p>
       </div>
       <div class="col">
-        <h5>Solutions</h5>
-        <a href="#solutions">Lead-capture websites</a>
-        <a href="#solutions">CRM</a>
-        <a href="#solutions">Automations</a>
-        <a href="#solutions">AI agents</a>
+        <h5>What we build</h5>
+        <a href="#solutions">Brand &amp; Site</a>
+        <a href="#solutions">Custom Platforms</a>
+        <a href="#solutions">Custom AI</a>
+        <a href="#solutions">Integrations</a>
       </div>
       <div class="col">
-        <h5>Company</h5>
-        <a href="#process">Process</a>
-        <a href="#pricing">Pricing</a>
+        <h5>Studio</h5>
+        <a href="#verticals">Industries</a>
+        <a href="#work">Work</a>
+        <a href="#approach">Approach</a>
         <a href="#faq">FAQ</a>
-        <a href="#contact">Contact</a>
       </div>
       <div class="col">
         <h5>Get in touch</h5>
         <a href="mailto:hello@kleper.studio">hello@kleper.studio</a>
-        <a href="#contact">Book a call</a>
+        <a href="#contact">Start a project</a>
       </div>
     </div>
     <div class="bottom">
-      <div>© 2026 Kleper Studio. All rights reserved.</div>
+      <div>© 2026 Kleper Studio · London, working globally.</div>
       <div>Privacy · Terms · Cookies</div>
     </div>
   </div>
@@ -854,9 +851,7 @@
     onScroll();
   })();
 
-  // Supabase config — set via Vercel env vars at build time, or hard-code for static hosting.
-  // For pure static sites you can paste these directly. The anon key is safe to expose in client-side code
-  // — it only grants whatever permissions you've allowed via Row Level Security.
+  // Supabase config
   var SUPABASE_URL  = window.SUPABASE_URL  || 'https://YOUR-PROJECT-REF.supabase.co';
   var SUPABASE_ANON = window.SUPABASE_ANON || 'YOUR-ANON-KEY';
 
@@ -869,7 +864,6 @@
     form.addEventListener('submit', function(e) {
       e.preventDefault();
 
-      // Honeypot — silently drop bot submissions
       var hp = form.querySelector('input[name="bot-field"]');
       if (hp && hp.value) {
         form.style.display = 'none';
@@ -881,14 +875,13 @@
       var orig = btn.innerHTML;
       btn.disabled = true; btn.innerHTML = 'Sending...';
 
-      // Collect products[] checkboxes into an array
       var products = Array.from(form.querySelectorAll('input[name="products"]:checked')).map(function(cb) { return cb.value; });
 
       var payload = {
         name:     form.name.value.trim(),
         email:    form.email.value.trim(),
         business: form.business.value.trim(),
-        budget:   form.budget.value,
+        industry: form.industry.value,
         need:     form.need.value.trim(),
         products: products,
         source:   'kleper.studio',
