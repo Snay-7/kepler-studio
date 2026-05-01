@@ -540,23 +540,26 @@
 
   /* Caption strip — positioned higher for vertical layout */
   .caption {
-    position: absolute;
-    bottom: 80px; left: 50%;
+    position: fixed;
+    bottom: 32px;
+    left: 50%;
     transform: translateX(-50%);
     background: rgba(15,15,18,0.92);
     backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(255,255,255,0.08);
-    padding: 22px 32px;
+    padding: 18px 28px;
     border-radius: 14px;
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 500;
     line-height: 1.4;
-    max-width: 920px;
+    max-width: min(92vw, 720px);
     text-align: center;
     color: #E5E5EA;
     z-index: 150;
     letter-spacing: -0.3px;
     transition: opacity 0.3s ease;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.5);
   }
   .caption strong { color: #00FF88; font-weight: 700; }
 
@@ -788,7 +791,7 @@
 
 <div class="caption" id="caption" style="opacity:0;"></div>
 
-<div class="controls" id="controls">
+<div class="controls hidden" id="controls" style="display: none;">
   <button onclick="play()">▶ Play 60s demo</button>
   <button class="secondary" onclick="document.documentElement.requestFullscreen()">⛶ Fullscreen</button>
 </div>
@@ -803,13 +806,13 @@
   fit();
 
   const scenes = [
-    { id: 's1', dur: 5000, caption: 'Most agencies pitch <strong>AI agents.</strong> We shipped one.' },
-    { id: 's2', dur: 8500, caption: '<strong>Stage 1:</strong> Find candidates. Disqualify bad fits.', onEnter: typeTerminal },
-    { id: 's3', dur: 9500, caption: '<strong>Stage 2:</strong> Inspect every signal. Brand, stack, performance.', onEnter: revealAudit },
-    { id: 's4', dur: 9500, caption: '<strong>Stage 3:</strong> Generate the email with Claude. ~$0.05.', onEnter: typeEmail },
-    { id: 's5', dur: 7500, caption: '<strong>Output:</strong> Client-ready brief. Done.', onEnter: revealBrief },
-    { id: 's6', dur: 5500, caption: '3 days of analyst work. <strong>Compressed into 90s.</strong>' },
-    { id: 's7', dur: 5500, caption: 'Need an AI agent? <strong>kleper.studio</strong>' }
+    { id: 's1', dur: 5000, caption: 'Everyone talks about <strong>AI agents.</strong> We shipped one.' },
+    { id: 's2', dur: 8500, caption: '<strong>Stage 1 — Sourcer.</strong> Reads a business and decides if it\'s worth pitching.', onEnter: typeTerminal },
+    { id: 's3', dur: 9500, caption: '<strong>Stage 2 — Auditor.</strong> Finds what\'s broken on their site. Speed, booking, brand.', onEnter: revealAudit },
+    { id: 's4', dur: 9500, caption: '<strong>Stage 3 — Pitch generator.</strong> Writes the email a human would write — but in 12 seconds.', onEnter: typeEmail },
+    { id: 's5', dur: 7500, caption: '<strong>Output:</strong> Client-ready brief. Every time.', onEnter: revealBrief },
+    { id: 's6', dur: 5500, caption: '3 days of human work — <strong>now runs in 90 seconds.</strong>' },
+    { id: 's7', dur: 5500, caption: 'We build agents like this. <strong>kleper.studio</strong>' }
   ];
 
   const total = scenes.reduce((a, s) => a + s.dur, 0);
@@ -922,10 +925,11 @@
       document.getElementById('progress').style.width = Math.min(100, (e / total) * 100) + '%';
       if (e >= total) {
         clearInterval(progressTimer);
+        // Auto-loop: restart after brief pause, no controls reappearing
         setTimeout(() => {
-          document.getElementById('controls').classList.remove('hidden');
           playing = false;
-        }, 800);
+          play();
+        }, 1500);
       }
     }, 50);
   }
@@ -946,6 +950,11 @@
   document.addEventListener('keydown', (e) => {
     if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); play(); }
     if (e.key === 'f') document.documentElement.requestFullscreen();
+  });
+
+  // Auto-play on page load — no click required
+  window.addEventListener('load', () => {
+    setTimeout(play, 300);
   });
 </script>
 
