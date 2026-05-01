@@ -5,7 +5,7 @@
 <title>Kleper Agent Demo — 16:9</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&family=Instrument+Serif:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html, body {
@@ -15,7 +15,6 @@
     background: #000;
     font-family: 'Inter', -apple-system, sans-serif;
     color: #fff;
-    cursor: none;
   }
   #stage {
     position: absolute;
@@ -23,27 +22,27 @@
     left: 50%;
     width: 1920px;
     height: 1080px;
-    transform: translate(-50%, -50%) scale(var(--s, 0.5));
+    transform: translate(-50%, -50%) scale(var(--s, 1));
     transform-origin: center center;
     background: #0A0A0B;
     overflow: hidden;
   }
+  /* dot grid */
   #stage::before {
     content: '';
     position: absolute;
     inset: 0;
-    background-image: radial-gradient(rgba(0,255,136,0.05) 1px, transparent 1px);
+    background-image: radial-gradient(rgba(0,255,136,0.08) 1px, transparent 1px);
     background-size: 32px 32px;
     pointer-events: none;
-    z-index: 1;
   }
+  /* radial accent */
   #stage::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at 75% 25%, rgba(0,255,136,0.10) 0%, transparent 50%);
+    background: radial-gradient(circle at 70% 30%, rgba(0,255,136,0.12) 0%, transparent 50%);
     pointer-events: none;
-    z-index: 1;
   }
 
   .scene {
@@ -53,15 +52,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 80px 100px;
-    z-index: 10;
-    transition: opacity 0.5s ease;
+    padding: 80px 120px;
   }
   .scene.active { opacity: 1; }
 
+  /* brand mark in corner */
   .brand {
     position: absolute;
-    top: 50px;
+    top: 60px;
     left: 80px;
     display: flex;
     align-items: center;
@@ -69,74 +67,97 @@
     z-index: 100;
     opacity: 0.85;
   }
-  .brand .mark { width: 38px; height: 38px; position: relative; }
+  .brand .mark {
+    width: 38px;
+    height: 38px;
+    position: relative;
+  }
   .brand .ring {
-    position: absolute; inset: 0;
-    border: 2px solid #fff; border-radius: 50%;
+    position: absolute;
+    inset: 0;
+    border: 2px solid #fff;
+    border-radius: 50%;
     transform: rotate(-20deg) scaleY(0.42);
   }
   .brand .planet {
-    position: absolute; right: -2px; top: 2px;
-    width: 11px; height: 11px;
-    background: #00FF88; border-radius: 50%;
+    position: absolute;
+    right: -2px;
+    top: 2px;
+    width: 11px;
+    height: 11px;
+    background: #00FF88;
+    border-radius: 50%;
   }
-  .brand .name { font-weight: 800; font-size: 24px; letter-spacing: -0.5px; }
+  .brand .name {
+    font-weight: 800;
+    font-size: 26px;
+    letter-spacing: -0.5px;
+  }
   .brand .name span { color: #00FF88; }
 
+  /* progress bar */
   .progress {
     position: absolute;
-    bottom: 0; left: 0;
-    height: 4px;
+    bottom: 0;
+    left: 0;
+    height: 3px;
     background: #00FF88;
     width: 0%;
+    transition: width 0.2s linear;
     z-index: 200;
-    box-shadow: 0 0 20px rgba(0,255,136,0.6);
   }
 
-  .scene-num {
+  /* caption strip */
+  .caption {
     position: absolute;
-    top: 50px; right: 80px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 14px;
-    color: #6B6B76;
-    letter-spacing: 3px;
-    z-index: 100;
-  }
-  .scene-num span { color: #00FF88; font-weight: 700; }
-
-  /* ===== SCENE 1: HARD HOOK ===== */
-  #s1 .hook-line1 {
-    font-size: 24px; font-weight: 600;
-    letter-spacing: 5px; color: #6B6B76;
-    margin-bottom: 40px;
-    text-transform: uppercase;
-  }
-  #s1 .hook-big {
-    font-size: 140px; font-weight: 900;
-    letter-spacing: -5px; line-height: 0.95;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(10,10,11,0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 18px 32px;
+    border-radius: 12px;
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: -0.3px;
+    line-height: 1.4;
+    max-width: 1400px;
     text-align: center;
-    margin-bottom: 20px;
+    color: #E5E5EA;
+    z-index: 150;
   }
-  #s1 .hook-big strong { color: #00FF88; }
-  #s1 .hook-strike {
-    text-decoration: line-through;
-    text-decoration-color: rgba(255,80,80,0.7);
-    text-decoration-thickness: 8px;
-    color: #6B6B76;
-    font-style: italic;
-    font-family: 'Instrument Serif', serif;
+  .caption strong { color: #00FF88; font-weight: 700; }
+
+  /* SCENE 1: HOOK */
+  #s1 .hook-eyebrow {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    color: #00FF88;
+    margin-bottom: 32px;
   }
+  #s1 .hook-title {
+    font-size: 96px;
+    font-weight: 800;
+    letter-spacing: -3px;
+    line-height: 1.05;
+    text-align: center;
+    max-width: 1400px;
+  }
+  #s1 .hook-title span { color: #00FF88; }
   #s1 .hook-sub {
-    font-size: 28px; color: #9A9AA5;
-    font-weight: 400; letter-spacing: -0.3px;
-    margin-top: 30px;
-    text-align: center;
+    margin-top: 36px;
+    font-size: 28px;
+    color: #9A9AA5;
+    font-weight: 400;
+    letter-spacing: -0.3px;
   }
-  #s1 .hook-sub b { color: #fff; font-weight: 600; }
 
-  /* ===== SCENE 2: TERMINAL (SOURCER) ===== */
+  /* SCENE 2: TERMINAL */
   .terminal {
-    width: 1500px;
+    width: 1400px;
     background: #0F0F12;
     border: 1px solid #25252C;
     border-radius: 14px;
@@ -146,591 +167,347 @@
   .terminal-header {
     background: #15151A;
     padding: 14px 20px;
-    display: flex; align-items: center; gap: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
     border-bottom: 1px solid #25252C;
   }
-  .terminal-dot { width: 12px; height: 12px; border-radius: 50%; }
+  .terminal-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+  }
   .terminal-dot.r { background: #FF5F57; }
   .terminal-dot.y { background: #FEBC2E; }
   .terminal-dot.g { background: #28C840; }
   .terminal-title {
-    margin-left: 14px;
+    margin-left: 12px;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 13px; color: #6B6B76;
-  }
-  .term-tag {
-    margin-left: auto;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px; color: #00FF88;
-    background: rgba(0,255,136,0.08);
-    padding: 4px 10px; border-radius: 4px;
-    letter-spacing: 1px;
+    font-size: 13px;
+    color: #6B6B76;
   }
   .terminal-body {
-    padding: 28px 32px;
+    padding: 32px;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 17px; line-height: 1.65;
+    font-size: 18px;
+    line-height: 1.7;
     color: #E5E5EA;
-    min-height: 480px;
-    max-height: 480px;
-    overflow: hidden;
+    min-height: 420px;
   }
-  .term-prompt { color: #00FF88; font-weight: 600; }
+  .term-prompt {
+    color: #00FF88;
+    font-weight: 600;
+  }
   .term-out { color: #9A9AA5; }
   .term-good { color: #00FF88; }
   .term-bad { color: #FF5F57; }
   .term-key { color: #FFFFFF; font-weight: 600; }
-  .term-dim { color: #6B6B76; }
   .cursor {
-    display: inline-block; width: 10px; height: 18px;
-    background: #00FF88; margin-left: 4px;
+    display: inline-block;
+    width: 10px;
+    height: 22px;
+    background: #00FF88;
+    margin-left: 4px;
     vertical-align: text-bottom;
     animation: blink 1s steps(2) infinite;
   }
   @keyframes blink { 50% { opacity: 0; } }
 
-  .scene-label {
-    position: absolute;
-    top: 130px; left: 100px;
-    z-index: 50;
-  }
-  .scene-label .num {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 13px; font-weight: 700;
-    letter-spacing: 4px; color: #00FF88;
-    margin-bottom: 8px;
-  }
-  .scene-label .name {
-    font-size: 38px; font-weight: 800;
-    letter-spacing: -1px;
-  }
-  .scene-label .desc {
-    font-size: 16px; color: #9A9AA5;
-    margin-top: 6px; max-width: 500px;
-  }
-
-  /* ===== SCENE 3: AUDITOR (Chrome browser sim) ===== */
-  .browser-frame {
+  /* SCENE 3: PIPELINE STAGES */
+  .pipeline {
     width: 1500px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .stage-card {
     background: #15151A;
     border: 1px solid #25252C;
-    border-radius: 14px;
-    overflow: hidden;
-    box-shadow: 0 30px 90px rgba(0,255,136,0.08);
-  }
-  .browser-header {
-    background: #1B1B22;
-    padding: 14px 20px;
-    display: flex; align-items: center; gap: 12px;
-    border-bottom: 1px solid #25252C;
-  }
-  .browser-url {
-    flex: 1;
-    background: #0F0F12;
-    padding: 8px 16px;
-    border-radius: 6px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 13px; color: #9A9AA5;
-    border: 1px solid #25252C;
-    display: flex; align-items: center; gap: 8px;
-  }
-  .browser-url::before {
-    content: '🔒'; font-size: 11px;
-  }
-  .browser-body {
-    padding: 0;
-    height: 540px;
-    background: #fff;
+    border-radius: 16px;
+    padding: 36px 32px;
     position: relative;
-    overflow: hidden;
-  }
-  .browser-mock-site {
-    height: 100%;
-    background: linear-gradient(180deg, #fff 0%, #fafafa 100%);
-    padding: 30px 50px;
-    color: #1a1a1a;
-    font-family: Arial, sans-serif;
-    position: relative;
-  }
-  .mock-header {
-    display: flex; justify-content: space-between; align-items: center;
-    border-bottom: 2px solid #F5191B;
-    padding-bottom: 16px; margin-bottom: 20px;
-  }
-  .mock-logo {
-    background: #F5191B;
-    color: #fff;
-    padding: 10px 16px;
-    font-weight: 900;
-    font-style: italic;
-    border-radius: 4px;
-    letter-spacing: 0.5px;
-  }
-  .mock-phones {
-    font-size: 13px; color: #1a1a1a;
-    text-align: right; line-height: 1.5;
-  }
-  .mock-phones b { color: #F5191B; }
-  .mock-nav {
-    background: #1a1a1a; color: #fff;
-    padding: 10px 16px;
-    display: flex; gap: 24px; font-size: 13px;
-    border-radius: 4px; margin-bottom: 16px;
-  }
-  .mock-hero {
-    height: 220px;
-    background: linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 100%);
-    border-radius: 4px;
-    position: relative;
-    display: flex; align-items: center; justify-content: center;
-    color: #fff; font-weight: 700; font-size: 24px;
-  }
-  .mock-circle {
-    width: 110px; height: 110px;
-    background: rgba(0,0,0,0.7);
-    border: 2px solid #fff;
-    border-radius: 50%;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    color: #fff; text-align: center;
-    font-size: 11px; font-weight: 700;
-    line-height: 1.2;
-  }
-  .mock-circle .red { background: #F5191B; padding: 3px 8px; margin-top: 4px; border-radius: 2px; }
-
-  /* Scanning overlay */
-  .scan-overlay {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    z-index: 20;
-  }
-  .scan-line {
-    position: absolute;
-    left: 0; right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, transparent, #00FF88, transparent);
-    box-shadow: 0 0 30px #00FF88, 0 0 10px #00FF88;
-    top: 0;
-    animation: scan 2s linear infinite;
-  }
-  @keyframes scan {
-    0% { top: 0; }
-    100% { top: 100%; }
-  }
-  .scan-grid {
-    position: absolute;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(0,255,136,0.08) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0,255,136,0.08) 1px, transparent 1px);
-    background-size: 40px 40px;
-  }
-  .scan-tag {
-    position: absolute;
-    background: rgba(0,255,136,0.95);
-    color: #0A0A0B;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px; font-weight: 700;
-    padding: 4px 10px;
-    border-radius: 4px;
-    letter-spacing: 1px;
     opacity: 0;
-    transform: scale(0.85);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    box-shadow: 0 4px 20px rgba(0,255,136,0.4);
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
   }
-  .scan-tag.shown {
+  .stage-card.shown {
     opacity: 1;
-    transform: scale(1);
+    transform: translateY(0);
   }
-  .scan-tag.t1 { top: 50px; left: 30px; }
-  .scan-tag.t2 { top: 50px; right: 30px; }
-  .scan-tag.t3 { top: 200px; left: 30px; }
-  .scan-tag.t4 { top: 200px; right: 30px; }
-  .scan-tag.t5 { bottom: 30px; left: 30px; }
-  .scan-tag.t6 { bottom: 30px; right: 30px; }
+  .stage-card .num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: #00FF88;
+    font-weight: 600;
+    letter-spacing: 3px;
+    margin-bottom: 16px;
+  }
+  .stage-card .title {
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 18px;
+  }
+  .stage-card .desc {
+    font-size: 16px;
+    color: #9A9AA5;
+    line-height: 1.6;
+  }
+  .stage-card .stat {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid #25252C;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: #00FF88;
+  }
 
-  .audit-stats {
-    position: absolute;
-    right: 80px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 380px;
-    background: rgba(15,15,18,0.95);
-    backdrop-filter: blur(10px);
+  /* SCENE 4: DATA EXTRACTION ANIMATION */
+  .extract {
+    width: 1500px;
+    display: grid;
+    grid-template-columns: 1fr 80px 1fr;
+    gap: 0;
+    align-items: center;
+  }
+  .extract-source {
+    background: #15151A;
     border: 1px solid #25252C;
     border-radius: 12px;
-    padding: 28px;
-    z-index: 30;
-  }
-  .audit-stats .header {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px; color: #00FF88;
-    letter-spacing: 2px;
-    margin-bottom: 18px;
-  }
-  .audit-row {
-    display: flex; justify-content: space-between;
-    padding: 12px 0;
-    border-bottom: 1px solid #25252C;
-    font-size: 14px;
-    opacity: 0;
-    transform: translateX(15px);
-    transition: opacity 0.4s ease, transform 0.4s ease;
-  }
-  .audit-row.shown { opacity: 1; transform: translateX(0); }
-  .audit-row:last-child { border-bottom: 0; }
-  .audit-row .l { color: #9A9AA5; }
-  .audit-row .v { color: #fff; font-family: 'JetBrains Mono', monospace; font-weight: 600; }
-  .audit-row .v.green { color: #00FF88; }
-  .audit-row .v.red { color: #FF5F57; }
-  .audit-row .swatch {
-    display: inline-block; width: 14px; height: 14px;
-    background: #F5191B; border-radius: 3px;
-    vertical-align: middle; margin-right: 6px;
-  }
-
-  /* ===== SCENE 4: CLAUDE GENERATING ===== */
-  .gen-split {
-    width: 1600px;
-    display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: 40px;
-    align-items: stretch;
-  }
-  .gen-input {
-    background: #15151A;
-    border: 1px solid #25252C;
-    border-radius: 14px;
-    padding: 28px;
-    height: 600px;
-    overflow: hidden;
-  }
-  .gen-input-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px; color: #6B6B76;
-    letter-spacing: 2px;
-    margin-bottom: 18px;
-    display: flex; justify-content: space-between;
-  }
-  .gen-input-label span { color: #00FF88; }
-  .json-display {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 14px;
-    line-height: 1.6;
-    color: #9A9AA5;
-  }
-  .json-display .key { color: #00FF88; }
-  .json-display .str { color: #FFFFFF; }
-  .json-display .num { color: #FEBC2E; }
-
-  .gen-arrow {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 30;
-  }
-  .gen-arrow .pill {
-    background: #00FF88;
-    color: #0A0A0B;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 14px;
-    font-weight: 700;
-    padding: 12px 20px;
-    border-radius: 8px;
-    box-shadow: 0 8px 30px rgba(0,255,136,0.4);
-    letter-spacing: 1px;
-  }
-  .gen-arrow .pill::after {
-    content: '...';
-    display: inline-block;
-    margin-left: 4px;
-    animation: dots 1.4s steps(4) infinite;
-    width: 18px;
-    text-align: left;
-  }
-  @keyframes dots {
-    0% { content: ''; }
-    25% { content: '.'; }
-    50% { content: '..'; }
-    75% { content: '...'; }
-  }
-
-  .gen-output {
-    background: #15151A;
-    border: 1px solid #00FF88;
-    border-radius: 14px;
-    padding: 28px;
-    height: 600px;
-    overflow: hidden;
-    box-shadow: 0 0 60px rgba(0,255,136,0.15);
-  }
-  .gen-output-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px; color: #00FF88;
-    letter-spacing: 2px;
-    margin-bottom: 18px;
-  }
-  .gen-email-meta {
-    font-size: 13px; color: #6B6B76;
-    margin-bottom: 14px;
-    padding-bottom: 14px;
-    border-bottom: 1px solid #25252C;
-  }
-  .gen-email-meta b { color: #fff; font-weight: 500; }
-  .gen-subject {
-    font-size: 20px; font-weight: 700;
-    color: #fff;
-    margin-bottom: 18px;
-  }
-  .gen-body {
-    font-size: 14px;
-    color: #E5E5EA;
-    line-height: 1.7;
-    overflow: hidden;
-  }
-  .gen-body .typed::after {
-    content: '|';
-    color: #00FF88;
-    animation: blink 1s steps(2) infinite;
-    margin-left: 2px;
-  }
-
-  /* ===== SCENE 5: BRIEF SHOWCASE ===== */
-  .brief-showcase {
-    width: 1700px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 24px;
-    align-items: stretch;
-  }
-  .brief-card {
-    background: #15151A;
-    border: 1px solid #25252C;
-    border-radius: 14px;
     padding: 24px;
     height: 480px;
     overflow: hidden;
+    position: relative;
+  }
+  .extract-source-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: #6B6B76;
+    margin-bottom: 16px;
+    letter-spacing: 2px;
+  }
+  .extract-source-content {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: #6B6B76;
+    line-height: 1.7;
+  }
+  .extract-source-content .highlight {
+    background: rgba(0,255,136,0.15);
+    color: #00FF88;
+    padding: 2px 4px;
+    border-radius: 3px;
+  }
+  .extract-arrow {
+    text-align: center;
+    color: #00FF88;
+    font-size: 48px;
+    font-weight: 300;
+    animation: pulse 2s ease infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 0.4; transform: translateX(0); }
+    50% { opacity: 1; transform: translateX(8px); }
+  }
+  .extract-output {
+    background: #15151A;
+    border: 1px solid #00FF88;
+    border-radius: 12px;
+    padding: 24px;
+    height: 480px;
+    overflow: hidden;
+    box-shadow: 0 0 60px rgba(0,255,136,0.15);
+  }
+  .extract-output-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: #00FF88;
+    margin-bottom: 16px;
+    letter-spacing: 2px;
+  }
+  .extract-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 14px 0;
+    border-bottom: 1px solid #25252C;
+    font-size: 16px;
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateX(20px);
     transition: opacity 0.5s ease, transform 0.5s ease;
   }
-  .brief-card.shown { opacity: 1; transform: translateY(0); }
-  .brief-card-tag {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
-    color: #00FF88;
-    letter-spacing: 2px;
-    margin-bottom: 14px;
-  }
-  .brief-card h3 {
-    font-size: 22px; font-weight: 700;
-    margin-bottom: 16px;
-    letter-spacing: -0.5px;
-  }
-  .brief-pain {
-    background: #0F0F12;
-    border-radius: 8px;
-    padding: 14px;
-    margin-bottom: 10px;
-    border-left: 3px solid #FF5F57;
-  }
-  .brief-pain .t { font-weight: 700; font-size: 14px; color: #fff; margin-bottom: 4px; }
-  .brief-pain .d { font-size: 12px; color: #9A9AA5; line-height: 1.5; }
-  .brief-step {
-    display: flex; align-items: center; gap: 12px;
-    padding: 10px 0;
-    border-bottom: 1px solid #25252C;
-  }
-  .brief-step:last-child { border-bottom: 0; }
-  .brief-step .num {
-    width: 28px; height: 28px;
-    background: #00FF88;
-    color: #0A0A0B;
-    border-radius: 6px;
-    display: flex; align-items: center; justify-content: center;
-    font-weight: 800; font-size: 12px;
-    flex-shrink: 0;
-  }
-  .brief-step .text { font-size: 13px; color: #E5E5EA; line-height: 1.4; }
-  .brief-stat {
-    background: #0F0F12;
-    border-radius: 8px;
-    padding: 14px;
-    margin-bottom: 10px;
-    text-align: center;
-  }
-  .brief-stat .pct {
-    font-size: 26px; font-weight: 800;
-    color: #00FF88;
-    letter-spacing: -1px;
-    line-height: 1;
-  }
-  .brief-stat .l {
-    font-size: 12px; color: #9A9AA5;
-    margin-top: 4px;
+  .extract-row.shown { opacity: 1; transform: translateX(0); }
+  .extract-row .label { color: #9A9AA5; }
+  .extract-row .val { color: #FFFFFF; font-family: 'JetBrains Mono', monospace; font-weight: 600; }
+  .extract-row .val.green { color: #00FF88; }
+  .extract-row .val.red { color: #FF5F57; }
+  .extract-row .swatch {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+    background: #F5191B;
+    vertical-align: middle;
+    margin-right: 8px;
   }
 
-  /* ===== SCENE 6: TIME COMPARISON ===== */
-  #s6 .time-eyebrow {
-    font-size: 18px; font-weight: 600;
-    letter-spacing: 5px; color: #00FF88;
-    margin-bottom: 50px;
-    text-align: center;
+  /* SCENE 5: BIG STAT */
+  #s5 .stat-eyebrow {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    color: #00FF88;
+    margin-bottom: 24px;
   }
-  #s6 .time-flex {
-    display: flex; align-items: center;
+  #s5 .stat-flex {
+    display: flex;
+    align-items: baseline;
     justify-content: center;
-    gap: 80px;
-    margin-bottom: 60px;
+    gap: 60px;
+    margin-bottom: 40px;
   }
-  #s6 .time-old, #s6 .time-new {
+  #s5 .stat-old, #s5 .stat-new {
     text-align: center;
   }
-  #s6 .time-old .v {
-    font-size: 100px; font-weight: 800;
+  #s5 .stat-old .v {
+    font-size: 96px;
+    font-weight: 800;
     color: #6B6B76;
     text-decoration: line-through;
-    text-decoration-color: rgba(255,95,87,0.7);
-    text-decoration-thickness: 8px;
-    letter-spacing: -3px; line-height: 1;
+    text-decoration-color: #FF5F57;
+    text-decoration-thickness: 6px;
+    letter-spacing: -2px;
+    line-height: 1;
   }
-  #s6 .time-new .v {
-    font-size: 180px; font-weight: 900;
+  #s5 .stat-new .v {
+    font-size: 160px;
+    font-weight: 900;
     color: #00FF88;
-    letter-spacing: -5px; line-height: 1;
-    text-shadow: 0 0 60px rgba(0,255,136,0.4);
+    letter-spacing: -4px;
+    line-height: 1;
   }
-  #s6 .time-old .l, #s6 .time-new .l {
-    font-size: 22px; color: #9A9AA5;
-    margin-top: 16px; font-weight: 500;
+  #s5 .stat-old .l, #s5 .stat-new .l {
+    font-size: 22px;
+    color: #9A9AA5;
+    margin-top: 18px;
+    font-weight: 500;
   }
-  #s6 .time-arrow {
-    font-size: 70px; color: #00FF88;
-    font-weight: 200;
+  #s5 .stat-arrow {
+    font-size: 80px;
+    color: #00FF88;
+    font-weight: 300;
   }
-  #s6 .time-cap {
-    font-size: 38px; font-weight: 700;
-    color: #fff;
+  #s5 .stat-cap {
+    font-size: 36px;
+    font-weight: 700;
+    color: #FFFFFF;
     letter-spacing: -0.8px;
     text-align: center;
   }
-  #s6 .time-cap span { color: #00FF88; }
 
-  /* ===== SCENE 7: CTA ===== */
-  #s7 { flex-direction: column; }
-  #s7 .cta-eyebrow {
-    font-size: 18px; font-weight: 600;
-    letter-spacing: 5px; color: #00FF88;
-    margin-bottom: 30px;
+  /* SCENE 6: CTA */
+  #s6 {
+    flex-direction: column;
   }
-  #s7 .cta-headline {
-    font-size: 96px; font-weight: 900;
-    letter-spacing: -3px; line-height: 1.0;
+  #s6 .cta-eyebrow {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    color: #00FF88;
+    margin-bottom: 28px;
+  }
+  #s6 .cta-headline {
+    font-size: 84px;
+    font-weight: 800;
+    letter-spacing: -2.5px;
+    line-height: 1.05;
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 28px;
   }
-  #s7 .cta-headline span { color: #00FF88; }
-  #s7 .cta-sub {
-    font-size: 28px; color: #9A9AA5;
-    margin-bottom: 50px;
+  #s6 .cta-headline span { color: #00FF88; }
+  #s6 .cta-sub {
+    font-size: 28px;
+    color: #9A9AA5;
+    margin-bottom: 60px;
     font-weight: 400;
-    text-align: center;
-    max-width: 1100px;
   }
-  #s7 .cta-orbital {
+  #s6 .cta-orbital {
     position: relative;
     width: 320px;
     height: 100px;
     margin-bottom: 40px;
   }
-  #s7 .cta-orbital .o1, #s7 .cta-orbital .o2 {
+  #s6 .cta-orbital .o1, #s6 .cta-orbital .o2 {
     position: absolute;
     border: 1.5px solid #00FF88;
     border-radius: 50%;
-    top: 50%; left: 50%;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%) rotate(-15deg) scaleY(0.3);
   }
-  #s7 .cta-orbital .o1 { width: 320px; height: 320px; opacity: 0.25; }
-  #s7 .cta-orbital .o2 { width: 200px; height: 200px; opacity: 0.18; }
-  #s7 .cta-orbital .center {
+  #s6 .cta-orbital .o1 { width: 320px; height: 320px; opacity: 0.25; }
+  #s6 .cta-orbital .o2 { width: 200px; height: 200px; opacity: 0.18; }
+  #s6 .cta-orbital .center-mark {
     position: absolute;
-    top: 50%; left: 50%;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
-    width: 80px; height: 80px;
+    width: 70px;
+    height: 70px;
   }
-  #s7 .cta-orbital .center .ring {
-    position: absolute; inset: 0;
-    border: 3px solid #fff; border-radius: 50%;
+  #s6 .cta-orbital .center-mark .ring {
+    position: absolute;
+    inset: 0;
+    border: 3px solid #fff;
+    border-radius: 50%;
     transform: rotate(-20deg) scaleY(0.42);
   }
-  #s7 .cta-orbital .center .planet {
-    position: absolute; right: -4px; top: 4px;
-    width: 22px; height: 22px;
-    background: #00FF88; border-radius: 50%;
-    box-shadow: 0 0 30px #00FF88;
-  }
-  #s7 .cta-url {
-    font-size: 36px; font-weight: 700;
-    color: #fff; letter-spacing: -0.5px;
-  }
-  #s7 .cta-url span { color: #00FF88; }
-
-  /* Caption strip */
-  .caption {
+  #s6 .cta-orbital .center-mark .planet {
     position: absolute;
-    bottom: 50px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(15,15,18,0.92);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255,255,255,0.08);
-    padding: 20px 36px;
-    border-radius: 14px;
-    font-size: 22px;
-    font-weight: 500;
-    line-height: 1.4;
-    max-width: 1500px;
-    text-align: center;
-    color: #E5E5EA;
-    z-index: 150;
-    letter-spacing: -0.3px;
-    transition: opacity 0.3s ease;
+    right: -4px;
+    top: 4px;
+    width: 20px;
+    height: 20px;
+    background: #00FF88;
+    border-radius: 50%;
   }
-  .caption strong { color: #00FF88; font-weight: 700; }
+  #s6 .cta-url {
+    font-size: 32px;
+    font-weight: 700;
+    color: #FFFFFF;
+    letter-spacing: -0.5px;
+  }
+  #s6 .cta-url span { color: #00FF88; }
 
-  /* Controls */
+  /* control panel — only visible on landing, hides on play */
   .controls {
     position: fixed;
-    bottom: 30px; left: 50%;
+    bottom: 24px;
+    left: 50%;
     transform: translateX(-50%);
-    display: flex; gap: 16px;
+    display: flex;
+    gap: 16px;
     z-index: 1000;
-    cursor: auto;
   }
   .controls button {
-    background: #00FF88; color: #0A0A0B;
+    background: #00FF88;
+    color: #0A0A0B;
     border: none;
-    padding: 16px 32px;
+    padding: 14px 28px;
     font-family: 'Inter', sans-serif;
-    font-weight: 700; font-size: 16px;
+    font-weight: 700;
+    font-size: 16px;
     letter-spacing: -0.3px;
     border-radius: 10px;
     cursor: pointer;
     transition: transform 0.15s ease;
-    box-shadow: 0 8px 30px rgba(0,255,136,0.3);
   }
   .controls button:hover { transform: scale(1.05); }
   .controls button.secondary {
     background: rgba(255,255,255,0.08);
     color: #fff;
     border: 1px solid rgba(255,255,255,0.15);
-    box-shadow: none;
   }
   .controls.hidden { display: none; }
-
-  body:hover { cursor: auto; }
 </style>
 </head>
 <body>
@@ -745,248 +522,133 @@
     <div class="name">Kleper<span>.studio</span></div>
   </div>
 
-  <div class="scene-num" id="scene-num"><span>01</span> / 07</div>
-
   <div class="scene" id="s1">
     <div style="text-align:center;">
-      <div class="hook-line1">EVERYONE TALKS ABOUT</div>
-      <div class="hook-big"><span class="hook-strike">AI agents</span></div>
-      <div class="hook-big">we <strong>shipped</strong> one.</div>
-      <div class="hook-sub">3,000 lines of <b>production Python.</b> Live now.</div>
+      <div class="hook-eyebrow">EVERYONE TALKS ABOUT AI AGENTS</div>
+      <div class="hook-title">We <span>shipped</span> one.</div>
+      <div class="hook-sub">In production. Real code. Real outputs. 30 seconds.</div>
     </div>
   </div>
 
   <div class="scene" id="s2">
-    <div class="scene-label">
-      <div class="num">STAGE 01 / SOURCER</div>
-      <div class="name">Find the right businesses.</div>
-      <div class="desc">Pulls candidates · scores signals · disqualifies bad fits</div>
-    </div>
     <div class="terminal">
       <div class="terminal-header">
         <div class="terminal-dot r"></div>
         <div class="terminal-dot y"></div>
         <div class="terminal-dot g"></div>
         <div class="terminal-title">~/Projects/kleper-agent</div>
-        <div class="term-tag">SOURCER · LIVE</div>
       </div>
       <div class="terminal-body" id="term-body"></div>
     </div>
   </div>
 
   <div class="scene" id="s3">
-    <div class="scene-label">
-      <div class="num">STAGE 02 / AUDITOR</div>
-      <div class="name">Inspect every signal.</div>
-      <div class="desc">Headless Chrome · Lighthouse · brand · stack · screenshots</div>
-    </div>
-    <div class="browser-frame">
-      <div class="browser-header">
-        <div class="terminal-dot r"></div>
-        <div class="terminal-dot y"></div>
-        <div class="terminal-dot g"></div>
-        <div class="browser-url">lightningpass.com</div>
-        <div class="term-tag">AUDITING · LIVE</div>
+    <div class="pipeline">
+      <div class="stage-card" id="sc1">
+        <div class="num">01 · SOURCER</div>
+        <div class="title">Find</div>
+        <div class="desc">Pulls candidates from any source. Applies disqualifier rules. Scores and ranks by signal.</div>
+        <div class="stat">10 → 7 eligible · 0.3s</div>
       </div>
-      <div class="browser-body">
-        <div class="browser-mock-site">
-          <div class="mock-header">
-            <div class="mock-logo">LIGHTNING</div>
-            <div class="mock-phones">
-              Call Oxford: <b>01865 777 676</b><br>
-              Call Reading: <b>0118 951 1782</b><br>
-              Call Stourbridge: <b>0121 296 8881</b>
-            </div>
-          </div>
-          <div class="mock-nav">Home · Contact · Courses · Social · Training</div>
-          <div class="mock-hero">
-            <div class="mock-circle">
-              FULL LICENCE<br>
-              FOLLOW OUR STEP<br>
-              BY STEP GUIDE
-              <div class="red">GET STARTED</div>
-            </div>
-          </div>
-        </div>
-        <div class="scan-overlay">
-          <div class="scan-grid"></div>
-          <div class="scan-line"></div>
-          <div class="scan-tag t1" id="tag1">DETECTING WORDPRESS</div>
-          <div class="scan-tag t2" id="tag2">EXTRACTING #F5191B</div>
-          <div class="scan-tag t3" id="tag3">PARSING NAV</div>
-          <div class="scan-tag t4" id="tag4">FINDING BOOKING FLOW</div>
-          <div class="scan-tag t5" id="tag5">CAPTURING SCREENSHOT</div>
-          <div class="scan-tag t6" id="tag6">RUNNING LIGHTHOUSE</div>
-        </div>
+      <div class="stage-card" id="sc2">
+        <div class="num">02 · AUDITOR</div>
+        <div class="title">Inspect</div>
+        <div class="desc">Headless Chrome captures screenshots, runs Lighthouse, fingerprints stack, extracts brand colour.</div>
+        <div class="stat">~60s per target</div>
       </div>
-    </div>
-    <div class="audit-stats">
-      <div class="header">DOSSIER · BUILDING</div>
-      <div class="audit-row" id="ar1">
-        <span class="l">Business</span>
-        <span class="v">Lightning</span>
-      </div>
-      <div class="audit-row" id="ar2">
-        <span class="l">Brand</span>
-        <span class="v"><span class="swatch"></span>#F5191B</span>
-      </div>
-      <div class="audit-row" id="ar3">
-        <span class="l">Stack</span>
-        <span class="v">WordPress</span>
-      </div>
-      <div class="audit-row" id="ar4">
-        <span class="l">Reviews</span>
-        <span class="v green">4.9 · 179</span>
-      </div>
-      <div class="audit-row" id="ar5">
-        <span class="l">Lighthouse</span>
-        <span class="v red">47/100</span>
-      </div>
-      <div class="audit-row" id="ar6">
-        <span class="l">Booking</span>
-        <span class="v">partial</span>
+      <div class="stage-card" id="sc3">
+        <div class="num">03 · PITCH</div>
+        <div class="title">Generate</div>
+        <div class="desc">Dossier feeds into Claude with a tuned prompt. Output: structured analysis brief in customer language.</div>
+        <div class="stat">~30s · $0.05 per lead</div>
       </div>
     </div>
   </div>
 
   <div class="scene" id="s4">
-    <div class="scene-label">
-      <div class="num">STAGE 03 / PITCH GENERATOR</div>
-      <div class="name">Write the analysis.</div>
-      <div class="desc">Claude API · tuned prompt · customer language · ~$0.05 per lead</div>
-    </div>
-    <div class="gen-split" style="position:relative;">
-      <div class="gen-input">
-        <div class="gen-input-label">
-          <span style="color:#6B6B76">DOSSIER · INPUT</span>
-          <span>148 LINES</span>
-        </div>
-        <div class="json-display">
-<span class="key">"business"</span>: {<br>
-&nbsp;&nbsp;<span class="key">"name"</span>: <span class="str">"Lightning Motorcycle Training"</span>,<br>
-&nbsp;&nbsp;<span class="key">"sector"</span>: <span class="str">"motorcycle_training"</span>,<br>
-&nbsp;&nbsp;<span class="key">"country"</span>: <span class="str">"GB"</span>,<br>
-&nbsp;&nbsp;<span class="key">"reviews"</span>: { <span class="key">"score"</span>: <span class="num">4.9</span>, <span class="key">"count"</span>: <span class="num">179</span> }<br>
-},<br>
-<span class="key">"audit"</span>: {<br>
-&nbsp;&nbsp;<span class="key">"lighthouse_perf"</span>: <span class="num">47</span>,<br>
-&nbsp;&nbsp;<span class="key">"lighthouse_a11y"</span>: <span class="num">89</span>,<br>
-&nbsp;&nbsp;<span class="key">"lighthouse_seo"</span>: <span class="num">92</span>,<br>
-&nbsp;&nbsp;<span class="key">"tech_stack"</span>: [<span class="str">"WordPress"</span>],<br>
-&nbsp;&nbsp;<span class="key">"brand_colour"</span>: <span class="str">"#F5191B"</span>,<br>
-&nbsp;&nbsp;<span class="key">"booking_verdict"</span>: <span class="str">"partial_online"</span>,<br>
-&nbsp;&nbsp;<span class="key">"phone_count"</span>: <span class="num">5</span>,<br>
-&nbsp;&nbsp;<span class="key">"locations"</span>: [<span class="str">"Oxford"</span>, <span class="str">"Reading"</span>, ...]<br>
-}
+    <div class="extract">
+      <div class="extract-source">
+        <div class="extract-source-label">RAW WEBSITE · UNSTRUCTURED</div>
+        <div class="extract-source-content">
+&lt;html&gt;<br>
+&lt;head&gt;&lt;title&gt;<span class="highlight">Lightning Motorcycle Training</span>&lt;/title&gt;<br>
+&lt;link href="<span class="highlight">/wp-content/themes</span>"&gt;<br>
+&lt;/head&gt;<br>
+&lt;body&gt;<br>
+&nbsp;&nbsp;&lt;img src="logo.png" data-color="<span class="highlight">#F5191B</span>"&gt;<br>
+&nbsp;&nbsp;&lt;p&gt;CBT, A1, A2, full licence training&lt;/p&gt;<br>
+&nbsp;&nbsp;&lt;a href="tel:<span class="highlight">01212968881</span>"&gt;Call us&lt;/a&gt;<br>
+&nbsp;&nbsp;&lt;div class="reviews"&gt;<span class="highlight">4.9</span> stars · <span class="highlight">179</span> reviews&lt;/div&gt;<br>
+&nbsp;&nbsp;&lt;form action="/booking" method="post"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;input name="name"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;input name="phone"&gt;<br>
+&nbsp;&nbsp;&lt;/form&gt;<br>
+&lt;/body&gt;<br>
         </div>
       </div>
 
-      <div class="gen-arrow">
-        <div class="pill">CLAUDE</div>
-      </div>
+      <div class="extract-arrow">→</div>
 
-      <div class="gen-output">
-        <div class="gen-output-label">EMAIL · GENERATED</div>
-        <div class="gen-email-meta">
-          To: <b>info@lightningpass.com</b><br>
-          From: <b>Snayder · Kleper Studio</b>
+      <div class="extract-output">
+        <div class="extract-output-label">STRUCTURED DOSSIER · MACHINE-READABLE</div>
+        <div class="extract-row" id="er1">
+          <span class="label">Business name</span>
+          <span class="val">Lightning Motorcycle Training</span>
         </div>
-        <div class="gen-subject" id="gen-subj"></div>
-        <div class="gen-body">
-          <span id="gen-body-text"></span><span class="typed" id="gen-cursor" style="display:none;"></span>
+        <div class="extract-row" id="er2">
+          <span class="label">Brand colour</span>
+          <span class="val"><span class="swatch"></span>#F5191B</span>
+        </div>
+        <div class="extract-row" id="er3">
+          <span class="label">Tech stack</span>
+          <span class="val">WordPress</span>
+        </div>
+        <div class="extract-row" id="er4">
+          <span class="label">Phone</span>
+          <span class="val">0121 296 8881</span>
+        </div>
+        <div class="extract-row" id="er5">
+          <span class="label">Reviews</span>
+          <span class="val green">4.9 · 179</span>
+        </div>
+        <div class="extract-row" id="er6">
+          <span class="label">Lighthouse perf</span>
+          <span class="val red">47 / 100</span>
+        </div>
+        <div class="extract-row" id="er7">
+          <span class="label">Booking flow</span>
+          <span class="val">partial_online</span>
         </div>
       </div>
     </div>
   </div>
 
   <div class="scene" id="s5">
-    <div class="scene-label">
-      <div class="num">OUTPUT / CLIENT-READY BRIEF</div>
-      <div class="name">Three modules. One asset.</div>
-      <div class="desc">Pain points · approach · projected impact</div>
-    </div>
-    <div class="brief-showcase">
-      <div class="brief-card" id="bc1">
-        <div class="brief-card-tag">3 PAIN POINTS</div>
-        <h3>What's broken</h3>
-        <div class="brief-pain">
-          <div class="t">Slow on mobile</div>
-          <div class="d">47/100 perf score · learners bouncing</div>
-        </div>
-        <div class="brief-pain">
-          <div class="t">Booking left hanging</div>
-          <div class="d">Flow doesn't complete online</div>
-        </div>
-        <div class="brief-pain">
-          <div class="t">Reputation hidden</div>
-          <div class="d">4.9 · 179 reviews not surfaced</div>
-        </div>
-      </div>
-      <div class="brief-card" id="bc2">
-        <div class="brief-card-tag">4 STEPS</div>
-        <h3>The approach</h3>
-        <div class="brief-step">
-          <div class="num">1</div>
-          <div class="text">Audit and map every drop-off</div>
-        </div>
-        <div class="brief-step">
-          <div class="num">2</div>
-          <div class="text">Rebuild booking path mobile-first</div>
-        </div>
-        <div class="brief-step">
-          <div class="num">3</div>
-          <div class="text">Move off WordPress to fast stack</div>
-        </div>
-        <div class="brief-step">
-          <div class="num">4</div>
-          <div class="text">Surface reviews where they convert</div>
-        </div>
-      </div>
-      <div class="brief-card" id="bc3">
-        <div class="brief-card-tag">PROJECTED IMPACT</div>
-        <h3>What shifts</h3>
-        <div class="brief-stat">
-          <div class="pct">+25-40%</div>
-          <div class="l">Mobile booking completion</div>
-        </div>
-        <div class="brief-stat">
-          <div class="pct">−50%</div>
-          <div class="l">Mobile load time</div>
-        </div>
-        <div class="brief-stat">
-          <div class="pct">+15-25%</div>
-          <div class="l">Enquiry-to-booking rate</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="scene" id="s6">
     <div style="text-align:center;">
-      <div class="time-eyebrow">REAL OUTPUT · ONE BUSINESS</div>
-      <div class="time-flex">
-        <div class="time-old">
+      <div class="stat-eyebrow">REAL OUTPUT · LIGHTNING MOTORCYCLE TRAINING</div>
+      <div class="stat-flex">
+        <div class="stat-old">
           <div class="v">3 days</div>
           <div class="l">manual analyst</div>
         </div>
-        <div class="time-arrow">→</div>
-        <div class="time-new">
+        <div class="stat-arrow">→</div>
+        <div class="stat-new">
           <div class="v">90s</div>
           <div class="l">this agent</div>
         </div>
       </div>
-      <div class="time-cap">Same architecture. <span>Any decision workflow.</span></div>
+      <div class="stat-cap">Same architecture. Any decision workflow.</div>
     </div>
   </div>
 
-  <div class="scene" id="s7">
+  <div class="scene" id="s6">
     <div class="cta-eyebrow">BUILT BY KLEPER STUDIO</div>
     <div class="cta-headline">We ship <span>AI agents.</span></div>
-    <div class="cta-sub">Custom AI · platforms · integrations for businesses that want to lead, not follow.</div>
+    <div class="cta-sub">For businesses that want to lead, not follow.</div>
     <div class="cta-orbital">
       <div class="o1"></div>
       <div class="o2"></div>
-      <div class="center">
+      <div class="center-mark">
         <div class="ring"></div>
         <div class="planet"></div>
       </div>
@@ -997,10 +659,10 @@
   <div class="progress" id="progress"></div>
 </div>
 
-<div class="caption" id="caption" style="opacity:0;"></div>
+<div class="caption" id="caption"></div>
 
-<div class="controls" id="controls">
-  <button onclick="play()">▶ Play 60s demo</button>
+<div class="controls hidden" id="controls" style="display: none;">
+  <button onclick="play()">▶ Play 30s demo</button>
   <button class="secondary" onclick="document.documentElement.requestFullscreen()">⛶ Fullscreen</button>
 </div>
 
@@ -1008,144 +670,105 @@
   function fit() {
     const sx = window.innerWidth / 1920;
     const sy = window.innerHeight / 1080;
-    document.getElementById('stage').style.setProperty('--s', Math.min(sx, sy));
+    const s = Math.min(sx, sy);
+    document.getElementById('stage').style.setProperty('--s', s);
   }
   window.addEventListener('resize', fit);
   fit();
 
   const scenes = [
     {
-      id: 's1', dur: 5500,
-      caption: 'Most agencies pitch <strong>AI agents.</strong> We shipped one. Here it is.'
+      id: 's1', dur: 4000,
+      caption: 'A multi-stage AI agent. Built end-to-end. <strong>Production code, not a prototype.</strong>'
     },
     {
-      id: 's2', dur: 9000,
-      caption: 'Stage 1: <strong>Sourcer</strong> finds candidates and disqualifies bad fits in seconds.',
+      id: 's2', dur: 6500,
+      caption: 'It runs in your terminal. <strong>5 modules. 3,000 lines of Python.</strong>',
       onEnter: typeTerminal
     },
     {
-      id: 's3', dur: 10000,
-      caption: 'Stage 2: <strong>Auditor</strong> inspects every signal — Lighthouse, stack, brand, booking flow.',
-      onEnter: revealAudit
+      id: 's3', dur: 5500,
+      caption: '<strong>Three stages.</strong> Sources businesses → finds what\'s broken → writes the pitch.',
+      onEnter: revealStages
     },
     {
-      id: 's4', dur: 10000,
-      caption: 'Stage 3: <strong>Pitch generator</strong> writes the analysis with Claude. ~$0.05 per lead.',
-      onEnter: typeEmail
+      id: 's4', dur: 5500,
+      caption: 'It reads a website like a human would — <strong>but in 90 seconds, not 3 days.</strong>',
+      onEnter: revealExtract
     },
     {
-      id: 's5', dur: 8500,
-      caption: 'Output: a <strong>client-ready brief.</strong> Pain points, approach, projected impact.',
-      onEnter: revealBrief
+      id: 's5', dur: 4500,
+      caption: 'What used to take analysts 3 days <strong>now runs in 90 seconds.</strong>'
     },
     {
-      id: 's6', dur: 5500,
-      caption: 'Three days of analyst work. <strong>Compressed into 90 seconds.</strong>'
-    },
-    {
-      id: 's7', dur: 5500,
-      caption: 'Need an agent for your business? <strong>kleper.studio</strong>'
+      id: 's6', dur: 5000,
+      caption: 'We build agents like this for businesses. <strong>kleper.studio</strong>'
     }
   ];
 
   const total = scenes.reduce((a, s) => a + s.dur, 0);
+  let elapsed = 0;
   let playing = false;
 
   function typeTerminal() {
     const body = document.getElementById('term-body');
     body.innerHTML = '';
     const lines = [
-      { html: '<span class="term-prompt">~/Projects/kleper-agent %</span> python3 sourcer.py --mode mock', delay: 0 },
-      { html: '<br>', delay: 800 },
-      { html: '<span class="term-out">  → Sourced 10 candidate(s) (mock mode)</span>', delay: 200 },
-      { html: '<br>', delay: 0 },
-      { html: '<span class="term-good">  ✓ Eligible (pass first-pass disqualifiers): 7</span>', delay: 600 },
-      { html: '<br>', delay: 0 },
-      { html: '<span class="term-bad">  ✗ Rejected at this stage: 3</span>', delay: 500 },
-      { html: '<br><br>', delay: 0 },
-      { html: '<span class="term-dim">Rejected examples (first 3):</span>', delay: 600 },
-      { html: '<br>', delay: 0 },
-      { html: '<span class="term-out">  − Riverside Dental Practice: <span class="term-bad">regulated_industry</span></span>', delay: 350 },
-      { html: '<br>', delay: 0 },
-      { html: '<span class="term-out">  − Specsavers Reading: <span class="term-bad">franchise</span></span>', delay: 350 },
-      { html: '<br>', delay: 0 },
-      { html: '<span class="term-out">  − Lift Strong: <span class="term-bad">already_on_acuity</span></span>', delay: 350 },
-      { html: '<br><br>', delay: 0 },
-      { html: '<span class="term-dim">Top eligible candidates by review volume:</span>', delay: 600 },
-      { html: '<br>', delay: 0 },
-      { html: '<span class="term-key">  − The Cut Above Barbershop (GB) — 812 reviews</span>', delay: 350 },
-      { html: '<br>', delay: 0 },
-      { html: '<span class="term-key">  − Cogworks Cycle Repairs (GB) — 421 reviews</span>', delay: 350 },
-      { html: '<br>', delay: 0 },
-      { html: '<span class="term-key">  − Goldcoast Surf School (AU) — 389 reviews</span>', delay: 350 },
-      { html: '<br>', delay: 0 },
-      { html: '<span class="term-key">  − Lightning Motorcycle Training (GB) — 312 reviews</span>', delay: 350 }
+      { t: 'span class="term-prompt"', text: '~/Projects/kleper-agent %', delay: 0 },
+      { t: 'span', text: ' python3 sourcer.py --mode mock', delay: 80 },
+      { t: 'br', delay: 600 },
+      { t: 'span class="term-out"', text: '  → Sourced 10 candidates (mock mode)', delay: 800 },
+      { t: 'br', delay: 0 },
+      { t: 'span class="term-good"', text: '  ✓ Eligible: 7', delay: 1100 },
+      { t: 'br', delay: 0 },
+      { t: 'span class="term-bad"', text: '  ✗ Rejected: 3', delay: 1400 },
+      { t: 'br', delay: 0 },
+      { t: 'br', delay: 100 },
+      { t: 'span class="term-out"', text: '  Top eligible candidates by review volume:', delay: 1700 },
+      { t: 'br', delay: 0 },
+      { t: 'span class="term-key"', text: '   · The Cut Above Barbershop (GB) — 812 reviews', delay: 2000 },
+      { t: 'br', delay: 0 },
+      { t: 'span class="term-key"', text: '   · Cogworks Cycle Repairs (GB) — 421 reviews', delay: 2200 },
+      { t: 'br', delay: 0 },
+      { t: 'span class="term-key"', text: '   · Goldcoast Surf School (AU) — 389 reviews', delay: 2400 },
+      { t: 'br', delay: 0 },
+      { t: 'span class="term-key"', text: '   · Lightning Motorcycle Training (GB) — 312 reviews', delay: 2600 },
+      { t: 'br', delay: 0 },
+      { t: 'span class="term-key"', text: '   · Apex MOT & Service Centre (GB) — 276 reviews', delay: 2800 }
     ];
-    let cum = 0;
-    lines.forEach(l => {
-      cum += l.delay;
-      setTimeout(() => { body.innerHTML += l.html; }, cum);
+
+    let cumulative = 0;
+    lines.forEach((l) => {
+      cumulative += l.delay;
+      setTimeout(() => {
+        if (l.t === 'br') {
+          body.innerHTML += '<br>';
+        } else {
+          body.innerHTML += '<' + l.t + '>' + l.text + '</' + l.t.split(' ')[0] + '>';
+        }
+      }, cumulative);
     });
   }
 
-  function revealAudit() {
-    const tags = ['tag1','tag2','tag3','tag4','tag5','tag6'];
-    const rows = ['ar1','ar2','ar3','ar4','ar5','ar6'];
-    tags.forEach((t,i) => setTimeout(() => document.getElementById(t).classList.add('shown'), 600 + i * 1000));
-    rows.forEach((r,i) => setTimeout(() => document.getElementById(r).classList.add('shown'), 1000 + i * 1000));
+  function revealStages() {
+    ['sc1','sc2','sc3'].forEach((id, i) => {
+      setTimeout(() => document.getElementById(id).classList.add('shown'), 300 + i * 350);
+    });
   }
 
-  function typeEmail() {
-    const subj = document.getElementById('gen-subj');
-    const body = document.getElementById('gen-body-text');
-    const cursor = document.getElementById('gen-cursor');
-    subj.textContent = '';
-    body.textContent = '';
-    cursor.style.display = 'inline';
-    const subject = 'Tried to book online — page took its time';
-    const bodyText = 'Had a look at Lightning Pass on a phone earlier — pages take long enough to load that I think a fair chunk of mobile visitors are bailing before they get to the bit that matters.\n\nAdd to that the fact that 179 reviews at 4.9 is the kind of reputation most schools dream of, and any visitor lost to a slow homepage feels like a real shame.\n\nLooks like the booking flow may not fully finish online either. I\'ve sketched out a rebuild — tighter structure, booking path that completes on a phone, fast mobile load.\n\nWant me to send it over?';
-
-    let i = 0;
-    function typeSubj() {
-      if (i < subject.length) {
-        subj.textContent += subject[i++];
-        setTimeout(typeSubj, 25);
-      } else {
-        setTimeout(() => {
-          let j = 0;
-          function typeBody() {
-            if (j < bodyText.length) {
-              const c = bodyText[j++];
-              body.innerHTML += (c === '\n' ? '<br>' : c);
-              setTimeout(typeBody, 18);
-            } else {
-              cursor.style.display = 'none';
-            }
-          }
-          typeBody();
-        }, 400);
-      }
-    }
-    typeSubj();
-  }
-
-  function revealBrief() {
-    ['bc1','bc2','bc3'].forEach((id, i) => {
-      setTimeout(() => document.getElementById(id).classList.add('shown'), 200 + i * 500);
+  function revealExtract() {
+    ['er1','er2','er3','er4','er5','er6','er7'].forEach((id, i) => {
+      setTimeout(() => document.getElementById(id).classList.add('shown'), 400 + i * 350);
     });
   }
 
   function resetAll() {
     document.querySelectorAll('.scene').forEach(s => s.classList.remove('active'));
-    document.querySelectorAll('.scan-tag').forEach(t => t.classList.remove('shown'));
-    document.querySelectorAll('.audit-row').forEach(r => r.classList.remove('shown'));
-    document.querySelectorAll('.brief-card').forEach(c => c.classList.remove('shown'));
+    document.querySelectorAll('.stage-card').forEach(c => c.classList.remove('shown'));
+    document.querySelectorAll('.extract-row').forEach(r => r.classList.remove('shown'));
     document.getElementById('term-body').innerHTML = '';
-    document.getElementById('gen-subj').textContent = '';
-    document.getElementById('gen-body-text').textContent = '';
-    document.getElementById('gen-cursor').style.display = 'none';
     document.getElementById('progress').style.width = '0%';
-    document.getElementById('caption').style.opacity = '0';
+    document.getElementById('caption').textContent = '';
   }
 
   function play() {
@@ -1153,7 +776,9 @@
     playing = true;
     document.getElementById('controls').classList.add('hidden');
     resetAll();
-    runScene(0);
+    elapsed = 0;
+    let idx = 0;
+    runScene(idx);
 
     const startTime = Date.now();
     const progressTimer = setInterval(() => {
@@ -1161,10 +786,11 @@
       document.getElementById('progress').style.width = Math.min(100, (e / total) * 100) + '%';
       if (e >= total) {
         clearInterval(progressTimer);
+        // Auto-loop: restart after brief pause, no controls reappearing
         setTimeout(() => {
-          document.getElementById('controls').classList.remove('hidden');
           playing = false;
-        }, 800);
+          play();
+        }, 1500);
       }
     }, 50);
   }
@@ -1173,11 +799,9 @@
     if (i >= scenes.length) return;
     const s = scenes[i];
     document.querySelectorAll('.scene').forEach(el => el.classList.remove('active'));
-    document.getElementById(s.id).classList.add('active');
-    const cap = document.getElementById('caption');
-    cap.innerHTML = s.caption;
-    cap.style.opacity = '1';
-    document.getElementById('scene-num').innerHTML = `<span>${String(i+1).padStart(2,'0')}</span> / 07`;
+    const el = document.getElementById(s.id);
+    el.classList.add('active');
+    document.getElementById('caption').innerHTML = s.caption;
     if (s.onEnter) s.onEnter();
     setTimeout(() => runScene(i + 1), s.dur);
   }
@@ -1185,6 +809,11 @@
   document.addEventListener('keydown', (e) => {
     if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); play(); }
     if (e.key === 'f') document.documentElement.requestFullscreen();
+  });
+
+  // Auto-play on page load — no click required
+  window.addEventListener('load', () => {
+    setTimeout(play, 300);
   });
 </script>
 
